@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<?php
-include("includes/iheader.php");
-?>
 <html>
+<?php
+include("iheader.php");
+?>
+        <?php
+            if(isset($_POST["login"])){  
+                $user = login($_POST["username2"], $_POST["password2"], $DBH);
+                if($user){ 
+                    $_SESSION['loggedIn'] = "yes";
+                    $_SESSION['username2'] = $user->username;
+                    $_SESSION['email'] = $user->email;
+                    unset($_SESSION['viesti']);
+                    redirect("frontpage.php");   
+                    
+                }
+            
+            } else if (!empty($_POST["login"])){
+                redirect("frontpage.php");
+                
+            }
+?>  
+    
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <style>
 
 /*
@@ -16,8 +35,8 @@ include("includes/iheader.php");
     
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
-    <link rel="stylesheet" type="text/css" href="styles/guestbox.css">
+    <link rel="stylesheet" type="text/css" href="tyylit.css">
+    <link rel="stylesheet" type="text/css" href="login_files/guestbox.css">
 </head>
 
 <body style="background-color: whitesmoke">
@@ -28,16 +47,17 @@ include("includes/iheader.php");
     <div class="logintaustabox">
         <div class="loginkirjpalkki">
             <div class="logonpaikka">
-                <img class="logonpaikka" src="graphics/logo.png">
+                <img class="logonpaikka" src="login_files/logo.png">
             </div>
          
                 <fieldset class="loginfieldset">
-                    
-                    <input class="login" style="width: 170px; height: 50px" type="text" name="username" placeholder="Username" required>
+                    <form method="POST">
+                    <input class="login" style="width: 170px; height: 50px" name="username2" placeholder="Username" required="" type="text">
             
-                    <input class="login" style="width: 170px; height: 50px" type="password" name="password" placeholder="Password" required>
+                    <input class="login" style="width: 170px; height: 50px" name="password2" placeholder="Password" required="" type="password">
                 
-                    <input class="login" style="width: 90px; height: 50px" type="submit" name="submit" value="Login"><br>
+                    <input class="login" style="width: 90px; height: 50px" name="login" value="Login" type="submit"><br>
+                    </form>
                 </fieldset>
                 
         </div>
@@ -46,19 +66,19 @@ include("includes/iheader.php");
            
             <p class="reghead">Register as a new user</p>
 
-        <form method="POST">
+        <form method="POST" action="saveUser.php">
             <fieldset width="100%">
             
             <p class="register">Username:</p>
-            <input class="reg" type="text" name="username" placeholder="Enter a username" required>
+            <input class="reg" name="username" placeholder="Enter a username" required="" type="text">
             
             <p class="register">E-mail:</p>
-            <input class="reg" type="email" name="email" placeholder="Enter a valid email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <input class="reg" name="email" placeholder="Enter a valid email address" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email">
             
             <p class="register">Country:</p>
             <select id="country" name="country">
 
-	<option value="AFG">Afghanistan</option>
+	<option value="AFG" selected="selected">Afghanistan</option>
 	<option value="ALA">Åland Islands</option>
 	<option value="ALB">Albania</option>
 	<option value="DZA">Algeria</option>
@@ -310,10 +330,10 @@ include("includes/iheader.php");
                 </select>
             
             <p class="register">Password:</p>
-            <input class="reg" type="password" name="password" placeholder="Enter password" required> 
+            <input class="reg" name="password" placeholder="Enter password" required="" type="password"> 
             <br><br>
             
-            <input class="reg" type="submit" name="submit" value="Register">
+            <input class="reg" name="submit" value="Register" type="submit">
             </fieldset>
             
         </form>
@@ -322,7 +342,7 @@ include("includes/iheader.php");
         </div>
         
         <div class="loginlogo">
-            <img src="graphics/icon_544.jpg" style="width: 34em; height:34em">
+            <img src="login_files/icon_544.jpg" style="width: 34em; height:34em">
 <!--
             <div class="enterguestbox">
                 <h3 class="enterguest">Enter site as a guest</h3>
@@ -330,7 +350,7 @@ include("includes/iheader.php");
 -->
         </div>
         
-        <a class="guest" href="nettisivu.html">
+        <a class="guest" href="https://users.metropolia.fi/~hannest/nettisivu/frontpage.php">
             <p class="guestfont">Enter site as a guest</p>
         </a>
     </div>
@@ -344,5 +364,5 @@ include("includes/iheader.php");
         
         
     </div>
-</body>
-</html>
+
+</body></html>
