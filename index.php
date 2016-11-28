@@ -35,8 +35,8 @@ include("iheader.php");
     
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="tyylit.css">
-    <link rel="stylesheet" type="text/css" href="login_files/guestbox.css">
+    <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
+    <link rel="stylesheet" type="text/css" href="styles/guestbox.css">
 </head>
 
 <body style="background-color: whitesmoke">
@@ -47,7 +47,7 @@ include("iheader.php");
     <div class="logintaustabox">
         <div class="loginkirjpalkki">
             <div class="logonpaikka">
-                <img class="logonpaikka" src="login_files/logo.png">
+                <img class="logonpaikka" src="graphics/logo.png">
             </div>
          
                 <fieldset class="loginfieldset">
@@ -342,7 +342,7 @@ include("iheader.php");
         </div>
         
         <div class="loginlogo">
-            <img src="login_files/icon_544.jpg" style="width: 34em; height:34em">
+            <img src="graphics/icon_544.jpg" style="width: 34em; height:34em">
 <!--
             <div class="enterguestbox">
                 <h3 class="enterguest">Enter site as a guest</h3>
@@ -350,7 +350,7 @@ include("iheader.php");
 -->
         </div>
         
-        <a class="guest" href="https://users.metropolia.fi/~hannest/nettisivu/frontpage.php">
+        <a class="guest" href="frontpage.php">
             <p class="guestfont">Enter site as a guest</p>
         </a>
     </div>
