@@ -10,8 +10,8 @@ include("iheader.php");
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
     <title>Nettisivu</title>
-    <link rel="stylesheet" type="text/css" href="tyylit.css">
-    <link rel="stylesheet" type="text/css" href="nettisivu_files/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
+    <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
 </head>
 
 <body>
@@ -20,23 +20,23 @@ include("iheader.php");
         
         <div class="otsikko">
             <div class="dropdown">
-                <span><img class="dropdownpic" src="nettisivu_files/menu2.png"></span>
+                <span><img class="dropdownpic" src="graphics/menu2.png"></span>
                     <div class="dropdown-content">
-                        <a href="https://users.metropolia.fi/~hannest/nettisivu/frontpage.php">Home</a>
+                        <a href="frontpage.php">Home</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Profile</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Settings</a>
-                        <a href="https://users.metropolia.fi/~hannest/nettisivu/logout.php">Log out</a>
+                        <a href="logout.php">Log out</a>
                     </div>
             </div>
-            <div class="logo"><a href="https://users.metropolia.fi/~hannest/nettisivu/frontpage.php" target="_self"><img src="nettisivu_files/logo.png" height="60em"></a></div>
-            <img class="profiilikuva" src="nettisivu_files/profiilikuva.jpg">
+            <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
+            <img class="profiilikuva" src="graphics/profiilikuva.jpg">
         </div>
 
         <div class="tausta1">
             
             <div class="kuvannimi"><p class="normal">Kuvan nimi</p></div> 
             <div class="latausaika"><p class="normal">Latausaika</p></div> 
-            <img class="clear kuva" src="nettisivu_files/kuva.jpg">
+            <img class="clear kuva" src="kuvat/kuva.jpg">
             
             <div class="clear kayttajatunnus"><p class="normal">Käyttäjätunnus</p></div>
             <div class="kommentit"><p class="normal">Kommenttien lkm</p></div>
@@ -47,7 +47,7 @@ include("iheader.php");
             <div class="kuvannimi"><p class="normal">Kuvan nimi</p></div> 
             <div class="latausaika"><p class="normal">Latausaika</p></div> 
             
-            <img class="kuva" src="nettisivu_files/kuva2.jpg">
+            <img class="kuva" src="kuvat/kuva2.jpg">
             
             <div class="kayttajatunnus"><p class="normal">Käyttäjätunnus</p></div>
             <div class="kommentit"><p class="normal">Kommenttien lkm</p></div>
