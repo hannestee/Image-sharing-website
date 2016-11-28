@@ -2,6 +2,7 @@
 <html>
 <?php
 include("iheader.php");
+
 ?>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -14,6 +15,7 @@ include("iheader.php");
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
 </head>
 
+    
 <body>
     <div class="otsikkowide"></div>
     <div class="tausta">
@@ -21,15 +23,27 @@ include("iheader.php");
         <div class="otsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
-                    <div class="dropdown-content">
+              ,       <div class="dropdown-content">
                         <a href="frontpage.php">Home</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Profile</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Settings</a>
                         <a href="logout.php">Log out</a>
                     </div>
             </div>
+            
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
             <img class="profiilikuva" src="graphics/profiilikuva.jpg">
+            
+            <div class="user">
+             <?php
+                if($_SESSION['loggedIn'] == "yes"){
+                echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
+                } else {
+                echo ("Vieras");
+                }
+                ?>
+            </div>
+            
         </div>
 
         <div class="tausta1">
@@ -61,5 +75,5 @@ include("iheader.php");
 
     </div>
 
-
-</body></html>
+</body>
+</html>
