@@ -294,6 +294,15 @@ p.menu {
     height: 3em;
 }
 
+.loginfieldset {
+    float: right;
+    width: 28em;
+    height: 3.4em;
+    padding: 15px;
+    display: inline;
+    box-sizing: border-box;
+}
+
 .loginmid {
     z-index: 1;
     width: 95%;
@@ -360,15 +369,6 @@ p.menu {
 fieldset {
     border: 0px;
     text-align: left;
-}
-
-.loginfieldset {
-    float: right;
-    width: 488px;
-    height: 3.4em;
-    padding: 15px;
-    display: inline;
-    box-sizing: border-box;
 }
 
 .login {
