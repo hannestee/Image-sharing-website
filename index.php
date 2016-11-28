@@ -52,22 +52,21 @@ include("iheader.php");
          
                 <fieldset class="loginfieldset">
                     <form method="POST">
-                    <input class="login" style="width: 170px; height: 50px" name="username2" placeholder="Username" required="" type="text">
+                    <input class="login" style="width: 10em; height: 50px" name="username2" placeholder="Username" required="" type="text">
             
-                    <input class="login" style="width: 170px; height: 50px" name="password2" placeholder="Password" required="" type="password">
+                    <input class="login" style="width: 10em; height: 50px" name="password2" placeholder="Password" required="" type="password">
                 
-                    <input class="login" style="width: 90px; height: 50px" name="login" value="Login" type="submit"><br>
+                    <input class="login" style="width: 5em; height: 50px" name="login" value="Login" type="submit"><br>
                     </form>
                 </fieldset>
-                
         </div>
         
 	<div class="loginmid">
             <div class="loginlogo">
                 <img src="graphics/icon_544.jpg" style="width: 34em, height: 34em">
             </div>
+		
         <div class="loginrektausta">
-           
             <p class="reghead">Register as a new user</p>
 
         <form method="POST" action="saveUser.php">
