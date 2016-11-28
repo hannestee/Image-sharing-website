@@ -1,9 +1,10 @@
-<?Php
+<?php
+
 //Tietokanta
-$user = 'aleksr';        //Käytäjänimi
-$pass = 'ayylmao';        //Salasana
+$user = 'hannest';        //Käytäjänimi 
+$pass = 'harambe';        //Salasana
 $host = 'mysql.metropolia.fi';  //Tietokantapalvelin
-$dbname = 'aleksr';        //Tietokanta
+$dbname = 'hannest';        //Tietokanta
 // Muodostetaan yhteys tietokantaan
 try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapaasti valittavissa)
     $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
@@ -12,9 +13,9 @@ try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapa
     // käytetään  merkistöä utf8
     $DBH->exec("SET NAMES utf8;");
 } catch(PDOException $e) {
-    echo "Yhteysvirhe.";
+    echo "Yhteysvirhe.";  
             //Kirjoitetaan mahdollinen virheviesti tiedostoon
-    /*file_put_contents('log/DBErrors.txt', 'Connection: '.$e->getMessage()."\n", FILE_APPEND);*/
+    file_put_contents('log/DBErrors.txt', 'Connection: '.$e->getMessage()."\n", FILE_APPEND);
 } //HUOM hakemistopolku!
 
 //This works in 5.2.3
@@ -54,4 +55,45 @@ function SSLoff(){
     }
 }//==== End -- Turn Off HTTPS
 
+/**
+ * Etsii annetun käyttäjän tiedot kannasta
+ * @param $user
+ * @param $pwd
+ * @param $DBH
+ * @return $row käyttäjäolio ,boolean false jos annettua käyttäjää ja salasanaa löydy
+ */
+function login($user, $pwd, $DBH) {
+    // !! on suola, jotta kantaan taltioitu eri hashkoodi vaikka salasana olisi tiedossa
+    //kokeile !! ja ilman http://www.danstools.com/md5-hash-generator/
+    //Tukevampia salauksia hash('sha256', $pwd ) tai hash('sha512', $pwd )
+    //MD5 on 128 bittinen
+    $hashpwd = hash('sha256', $pwd."ayy"); //HUOM Suola
+    //An array of values with as many elements as there are bound parameters in the 
+    //SQL statement being executed. All values are treated as PDO::PARAM_STR
+    $data = array('username' => $user, 'password' => $hashpwd);
+    //print_r($data);
+    try {
+        //print_r($data);
+        //echo "Login 1<br />";
+        $STH = $DBH->prepare("SELECT * FROM ga_users WHERE username=:username AND
+        password=:password");
+        //HUOM! SQL-lauseessa on monta muuttuvaa) tietoa. Ne on helppo antaa
+        // assosiatiivisen taulukon avulla (eli indeksit merkkijonoja)
+        //HUOM! Taulukko annetaan nyt execute() metodille
+        $STH->execute($data);
+        $STH->setFetchMode(PDO::FETCH_OBJ);
+        $row = $STH->fetch();
+        //print_r($row);
+        if($STH->rowCount() > 0){
+            //echo "Login 4<br />";
+            return $row;
+        } else {
+            //echo "Login 5<br />";
+            return false;
+        }
+    } catch(PDOException $e) {
+        echo "Login DB error.";
+        file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", FILE_APPEND);
+    }
+}
 ?>
