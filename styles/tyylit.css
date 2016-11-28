@@ -371,7 +371,7 @@ fieldset {
 
 .loginfieldset {
     float: right;
-    width: 488px;
+    width: 28em;
     height: 3.4em;
     padding: 15px;
     display: inline;
