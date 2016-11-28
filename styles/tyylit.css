@@ -104,6 +104,13 @@ p.menu {
     border: 1px solid black;
 }
 
+.user {
+    position: relative;
+    float: right;
+    margin-top: 4.5em;
+    margin-right: 2em;
+}
+
 .tausta1 {
     width: 100%;
     padding-top: 200px;
@@ -294,15 +301,6 @@ p.menu {
     height: 3em;
 }
 
-.loginfieldset {
-    float: right;
-    width: 28em;
-    height: 3.4em;
-    padding: 15px;
-    display: inline;
-    box-sizing: border-box;
-}
-
 .loginmid {
     z-index: 1;
     width: 95%;
@@ -371,6 +369,15 @@ fieldset {
     text-align: left;
 }
 
+.loginfieldset {
+    float: right;
+    width: 488px;
+    height: 3.4em;
+    padding: 15px;
+    display: inline;
+    box-sizing: border-box;
+}
+
 .login {
     padding: 10px;
     margin: 1px;
@@ -434,6 +441,7 @@ select {
     font-size: 0.9em;
     font-family: "Verdana", Geneva, sans-serif;
 }
+
 
 
 
