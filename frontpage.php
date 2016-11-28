@@ -23,7 +23,7 @@ include("iheader.php");
         <div class="otsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
-              ,       <div class="dropdown-content">
+                     <div class="dropdown-content">
                         <a href="frontpage.php">Home</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Profile</a>
                         <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Settings</a>
@@ -31,7 +31,7 @@ include("iheader.php");
                     </div>
             </div>
             
-            <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
+            <div class="logo"><a href="index.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
             <img class="profiilikuva" src="graphics/profiilikuva.jpg">
             
             <div class="user">
