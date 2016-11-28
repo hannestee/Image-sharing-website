@@ -1,0 +1,443 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: lightgrey;
+    border-spacing: 0;
+}
+
+p.normal {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+p.register {
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+p.reghead {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+p.menu {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 2em;
+}
+
+.tausta {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    position: absolute;
+}
+
+/*
+.tausta {
+    width: 67.5em;
+    display: flex;
+    margin: auto;
+    position: relative;
+}
+*/
+
+
+.otsikko {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    height: 8.5em;
+    margin-top: -0.5em;
+    background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    border-bottom: 2px solid rgb(185,65,0);
+}
+
+.otsikkowide {
+    z-index: 998;
+    position: fixed;
+    width: 100%;
+    height: 8.5em;
+    margin-top: -0.5em;
+    background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    border-bottom: 2px solid rgb(185,65,0);
+}
+
+.logo {
+    z-index: 999;
+    position: absolute;
+    float: left;
+    top: 50%;
+    margin-top: 8px;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profiilikuva {
+    position: relative;
+    float: right;
+    width: 6.5em;
+    border: 1px solid grey;
+    margin-top: 19px;
+    margin-right: 11px;
+}
+
+.profiilikuva:hover {
+    opacity: 0.9;
+    border: 1px solid black;
+}
+
+.tausta1 {
+    width: 100%;
+    padding-top: 200px;
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+@media only screen and (min-width: 1081px) {
+    .tausta1 {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+/*
+.tausta1 {
+    width: 67.5em;
+    padding-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+}
+*/
+
+.hr {   
+    float: left;
+    position: relative;
+    opacity: 0.3;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+/*    padding-left: 40px;*/
+/*    padding-right: 40px;*/
+}
+
+.kuva {
+    width: 67.5em;
+    max-width: 100%;
+    margin: auto;
+    max-height: 1350px;
+}
+
+.kuvannimi {
+    float: left;
+    position: relative;
+    width: 18.75em;
+    margin-left: 5.625em;
+}
+
+.latausaika {
+    float: left;
+    position: relative;
+    width: 18.75em;
+}
+
+.kayttajatunnus {
+    float: left;
+    position: relative;
+    width: 18.75em;
+    margin-left: 5.625em;
+}
+
+.kommentit {
+    float: left;
+    position: relative;
+    width: 18.75em;
+}
+
+.arvostelu {
+    float: left;
+    position: relative;
+    width: 18.75em;
+    margin-right: 0;
+    /*margin-bottom: 100px;*/
+}
+
+
+.profiilipalkki {
+    position: relative;
+    float: left;
+    width: 67.5em;
+    min-width: 100%;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    margin-bottom: 25px;
+}
+
+.profiilitausta {
+    position: absolute;
+    height: 110vh;
+    width: 67.5em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+}
+
+.kuvaprof2 {
+    width: 340px;
+    height: 191.25px;
+}
+
+.kuvaprof1 {
+    float: left;
+    position: relative;
+    margin-left: 15px;
+    width: 340px;
+    /*border: 1px solid white;*/
+}
+
+/*.kuvaprof1:hover {
+    border: 1px solid black;
+    opacity: 0.5;
+}*/
+
+.kuvadesc {
+    padding: 10px;
+    text-align: center;
+}
+
+.kuvat {
+    display: block;
+    margin: auto;
+    max-height: 191.25px;
+    max-width: 340px;
+    border: 1px solid white;
+}
+        
+.kuvat:hover {
+    border: 1px solid black;
+    opacity: 0.7;
+}
+
+.logintausta {
+    z-index: 999;
+    width: 67.5em;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+}
+
+.logintaustabox {
+    position: relative;
+    z-index: 999;
+    width: 65.5em;
+    height: 45em;
+    margin-top: 17em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    /*background-color: yellow;*/
+    
+}
+.logintausta {
+    /*overflow-y: hidden;*/
+    position: absolute;
+    z-index: 2000;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100vh;
+    background-color: whitesmoke;
+    /*background-color: black;*/
+}
+
+.loginlogo  {
+    position: absolute;
+    z-index: 1000;
+    background-color: rgb(250,250,250);
+    width: 34em;
+    height: 34em;
+    margin-top: 1em;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius:1px;
+}
+
+.loginkirjpalkki {
+    position: relative;
+    z-index: 10;
+    width: 65.5em;
+    height: 5em;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 1px;
+}
+
+.logonpaikka{
+    position: absolute;
+    margin-top: 0.55em;  
+    margin-left: 0.5em;
+    height: 3em;
+}
+
+.loginrektausta{
+    position: absolute;
+    z-index: 1001;
+    background-color: white;
+    width: 30.5em;
+    height: 34em;
+    margin-top: 1em;
+    margin-left: 35em;
+    margin-right: 0;
+    border: 1px solid rgba(0,0,0, .2);
+    border-radius: 1px;
+}
+
+.loginfooter {
+    overflow: hidden;
+    position: fixed;
+    width: 65.5em;
+    height: 10em;
+    margin-top: 19vh;
+    left: 50%;
+    margin-left: -32.75em;
+    background-color: whitesmoke;
+}
+
+.footertxt1 {
+    float: left;
+    text-align: center;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    width: 33.33%;
+}
+
+.footertxt2 {
+    float: left;
+    text-align: center;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    margin-top: 0.5em;
+    width: 100%;
+}
+
+fieldset {
+    border: 0px;
+}
+
+.loginfieldset {
+    float: right;
+    width: 488px;
+    height: 3.4em;
+    padding: 15px;
+    display: inline;
+    box-sizing: border-box;
+}
+
+.login {
+    padding: 10px;
+    margin: 1px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+input[type=submit] {
+    border: 2px solid white;
+    padding: 0.5em;
+    margin: 1px;
+    color: white;
+    background-color: rgb(185,70,25);
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #555555;
+    color: white;
+    border: 2px solid rgb(185,70,25);
+    cursor: pointer;
+}
+
+/*
+.loginbutton {
+    padding: 10px;
+    margin: 1px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+.loginbutton:hover, loginbutton:active {
+    background-color: #555555;
+    color: white;
+}
+*/
+
+.reg {
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    border: 1px solid rgba(0,0,0, .2);
+    box-sizing: border-box;
+    background-color: white;
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

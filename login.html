@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            overflow-y: hidden;
+        }
+    </style>
+    
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="tyylit.css">
+</head>
+
+<body style="background-color: rgb(250,250,250)">
+    
+    <div class="logintausta">
+        
+    <!--logintaustabox rajoittaa kirjpalkin, rektaustan ja logon alueen-->
+    <div class="logintaustabox">
+        <div class="loginkirjpalkki">
+            <div class="logonpaikka">
+            </div>
+         
+                <fieldset style="width: 28.5em; display: inline; height: 3.4em; margin-top: 0.2em; margin-left: 35.3em">
+                    
+                    <input class="syotekentta" style="width: 170px; height: 50px" type="text" name="username" placeholder="Enter your username" required>
+            
+                    <input class="syotekentta" style="width: 170px; height: 50px" type="password" name="password" placeholder="Enter your password" required>
+                
+                    <input class="syotekentta" style="width: 90px; height: 50px" type="submit" name="submit" value="Login"><br>
+                </fieldset>
+                
+        </div>
+                    
+        <div class="loginrektausta">
+           
+            <h3 style="margin-left: 8.5em">Register as a new user</h3>
+
+        <form method="POST">
+            <fieldset style="width: 28.7em; height: 29em">
+                
+            <p>Full name:</p>
+            <input class="syotekentta" style="width: 230px" type="text" name="fullname" placeholder="Enter your full name" required>
+            
+            <p>Username:</p>
+            <input class="syotekentta" style="width: 230px" type="text" name="username" placeholder="Enter a username" required>
+            
+            <p>E-mail:</p>
+            <input class="syotekentta" style="width: 230px" type="email" name="email" placeholder="Enter a valid email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            
+            <p>Country:</p>
+            <input class="syotekentta" style="width: 230px" type="text" name="country" placeholder="Enter your country" required>
+            
+            <p>Password:</p>
+            <input class="syotekentta" style="width: 230px" type="password" name="password" placeholder="Enter password" required>
+                
+            <p>Password:</p>
+            <input class="syotekentta" style="width: 230px" type="password" name="password" placeholder="Enter password" required>
+            <br><br>
+            
+            <input class="syotekentta" style="width: 230px" type="submit" name="submit" value="Register"><br>
+            </fieldset>
+            
+        </form>
+        
+        </div>
+        
+        <div class="loginlogo">
+            <img src="big_icon.jpg" style="width: 34em; height:34em">
+            <div class="enterguestbox">
+                <h3 class="enterguest">Enter site as a guest</h3>
+            </div>
+        </div>
+            
+    </div>
+        <div class="loginfooter">
+            <p>tähän footer</p>
+        
+        </div>
+        
+        
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

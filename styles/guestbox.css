@@ -1,0 +1,58 @@
+.guestfont {
+    font-size: 1.5em;
+}
+
+.guest:link {
+    display: inline-block;
+    position: relative;
+    z-index: 2000;
+    width: 1050px;
+    height: 5em;
+    box-sizing: border-box;
+    margin-top: 36em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(185,70,25);
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.guest:visited {
+    display: inline-block;
+    position: relative;
+    z-index: 2000;
+    width: 1050px;
+    height: 5em;
+    box-sizing: border-box;
+    margin-top: 36em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(185,70,25);
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-align: center;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.guest:hover, guest:active {
+    border: 2px solid rgb(185,70,25);
+    background-color: #555555;
+    color: white;
+    word-spacing: 3px;
+    letter-spacing: 2px;
+}
