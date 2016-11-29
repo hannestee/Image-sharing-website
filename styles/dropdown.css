@@ -17,7 +17,7 @@ p.droppi:hover {
 
 .dropdownpic {
     margin-top: 0.8em;
-    height: 6em;
+    height: 6.5em;
     z-index: 3000;
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -34,7 +34,7 @@ p.droppi:hover {
     color: white;
     min-width: 200px;
     font-size: 2em;
-    margin-top: 2px;
+    margin-top: -6px;
 }
 
 .dropdown-content a {
