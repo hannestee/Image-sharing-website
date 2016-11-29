@@ -345,7 +345,7 @@ include("iheader.php");
         </div>
         
         <a class="guest" href="frontpage.php">
-            <p class="guestfont">Enter site as a guest</p>
+            <p class="guestfont">ENTER AS GUEST</p>
         </a>
     </div>
         
