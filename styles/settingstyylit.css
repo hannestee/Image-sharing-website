@@ -1,0 +1,249 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: lightgrey;
+    border-spacing: 0;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* --------------------------------FONTIT-------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+
+p.normal {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+p.register {
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+p.reghead {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+p.menu {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 2em;
+}
+
+p.settings {
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    margin-top: 2em;
+}
+
+h1.settings{
+    font-size: 2em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 5px;
+    margin-top: 1em;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.settingstausta {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    margin: auto;
+    position: absolute;
+    overflow: hidden;
+    
+}
+
+.settingstausta1 {
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    position: relative;
+    background-color: white;
+    
+}
+
+.settingssisalto {
+    position: absolute;
+    z-index: 501;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3em;
+    box-sizing: border-box;
+    margin-top: 8em;
+}
+
+.settingsimage {
+    width: 100%;
+    position: absolute;
+    margin-top: 8.1em;
+}
+
+
+.settingsotsikko {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 8.5em;
+    margin-top: -0.5em;
+    background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    border-bottom: 2px solid rgb(185,65,0);
+}
+
+.logo {
+    z-index: 999;
+    position: absolute;
+    float: left;
+    top: 50%;
+    margin-top: 8px;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profiilikuva {
+    position: relative;
+    float: right;
+    width: 6.5em;
+    border: 1px solid grey;
+    margin-top: 19px;
+    margin-right: 11px;
+}
+
+.profiilikuva:hover {
+    opacity: 0.9;
+    border: 1px solid black;
+}
+
+/* ---------------------------------------------------------------------------*/
+/* --------------------------------MEDIA QUERY--------------------------------*/
+/* ---------------------------------------------------------------------------*/
+
+
+@media only screen and (orientation: landscape) {
+    .settingstausta1 {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .settingstausta {
+        overflow: auto;
+    }
+}
+
+
+@media only screen 
+and (min-device-width : 368px) 
+and (max-device-width : 1924px) 
+and (orientation : portrait) { 
+    .settingsimage{
+        opacity: .1;
+    }
+}
+/* ---------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
+
+
+
+hr {   
+    float: left;
+    position: absolute;
+    opacity: 0.3;
+    width: 85%;
+}
+
+
+
+.logonpaikka{
+    position: absolute;
+    margin-top: 0.55em;  
+    margin-left: 0.5em;
+    height: 3em;
+}
+
+
+.login {
+    padding: 10px;
+    margin: 1px;
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+input[type=submit] {
+    border: 2px solid white;
+    padding: 0.2em;
+    margin: 1px;
+    color: white;
+    background-color: rgb(185,70,25);
+    box-sizing: border-box;
+    font-size: 1em;
+    font-family: "Verdana", Geneva, sans-serif;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #555555;
+    color: white;
+    border: 2px solid rgb(185,70,25);
+    cursor: pointer;
+}
+
+.syotemitat {
+    width: 35%; 
+    height: 2.5em
+}
+
+.reg {
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
+
+select {
+    width: 50%;
+    height: 3em;
+    border: 1px solid rgba(0,0,0, .2);
+    margin-bottom: 0.5em;
+    box-sizing: border-box;
+    background-color: white;
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
+}
+
