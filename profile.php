@@ -40,7 +40,7 @@ include("iheader.php");
                 if($_SESSION['loggedIn'] == "yes"){
                 echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
                 } else {
-                echo ("Vieras");
+                echo ("Guest");
                 }
                 ?>
             </div>
