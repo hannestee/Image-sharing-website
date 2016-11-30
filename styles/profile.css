@@ -1,0 +1,97 @@
+.backgroundhidden {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    padding-top: 200px;
+    background-color: whitesmoke;
+}
+
+@media only screen and (orientation: landscape) {
+    .backgroundhidden {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+.profilebackground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 200px;
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+@media only screen and (orientation: landscape) {
+    .profilebackground {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+.responsive {
+    float: left;
+    width: 49.9999%;
+    margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 1081px) {
+    .responsive {
+        width: 24.9999%;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .responsive {
+        width: 24.9999%;
+    }
+}
+
+.imageframe {
+    border-radius: 3px;
+    border: 1px solid rgb(185,70,25);
+    margin: auto;
+    padding: 0.5em;
+    margin: 0.5em;
+    height: 220px;
+}
+
+.image {
+    display: block;
+    margin: auto;
+    max-height: 220px;
+    max-width: 100%;
+    height: auto;
+}
+
+.imageframe:hover .image {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.imageframe:hover {
+    cursor: pointer;
+}
+
+.imagedesc {
+    text-align: center;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
