@@ -80,8 +80,8 @@ include("iheader.php");
             
             <p class="register">Country:</p>
             <select id="country" name="country">
-
-	<option value="AFG" selected="selected">Afghanistan</option>
+	<option value="null" selected="selected">Select your country</option>
+	<option value="AFG">Afghanistan</option>
 	<option value="ALA">Åland Islands</option>
 	<option value="ALB">Albania</option>
 	<option value="DZA">Algeria</option>
