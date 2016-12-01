@@ -35,7 +35,7 @@ include("iheader.php");
             <img class="profiilikuva" src="graphics/profiilikuva.jpg">
             
             <div class="user">
-             <?php
+                <?php
                 if($_SESSION['loggedIn'] == "yes"){
                 echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
                 } else {
@@ -48,32 +48,67 @@ include("iheader.php");
 
         <div class="tausta1">
             
-            <div class="kuvannimi"><p class="normal">Kuvan nimi</p></div> 
-            <div class="latausaika"><p class="normal">Latausaika</p></div> 
-            <img class="clear kuva" src="kuvat/kuva.jpg">
+            <div class="content">
+                <div class="imagename">asdsad</div>
+                <div class="date">asdasasdfsdgdgdffr</div>
+                
+                <div class="fimageframe">
+                    <img class="fimage" src="kuvat/kuva2.jpg">
+                </div>
+                
+                <div class="username">afregs</div>
+                <div class="comments">arfera</div>
+                <div class="ratings">gvgt</div>
+            </div>
             
-            <div class="clear kayttajatunnus"><p class="normal">Käyttäjätunnus</p></div>
-            <div class="kommentit"><p class="normal">Kommenttien lkm</p></div>
-            <div class="arvostelu"><p class="normal">Arvostelut</p></div>
+            <div class="content">
+                <div class="imagename">asdsad</div>
+                <div class="date">asdasasdfsdgdgdffr</div>
+                
+                <div class="fimageframe">
+                    <img class="fimage" src="kuvat/kuva4.jpg">
+                </div>
+                
+                <div class="username">afregs</div>
+                <div class="comments">arfera</div>
+                <div class="ratings">gvgt</div>
+            </div>
             
-            <div class="hr"><hr></div>
-            
-            <div class="kuvannimi"><p class="normal">Kuvan nimi</p></div> 
-            <div class="latausaika"><p class="normal">Latausaika</p></div> 
-            
-            <img class="kuva" src="kuvat/kuva2.jpg">
-            
-            <div class="kayttajatunnus"><p class="normal">Käyttäjätunnus</p></div>
-            <div class="kommentit"><p class="normal">Kommenttien lkm</p></div>
-            <div class="arvostelu"><p class="normal">Arvostelut</p></div>
-            
-            <div class="hr"><hr></div>
+            <div class="content">
+                <div class="imagename">asdsad</div>
+                <div class="date">asdasasdfsdgdgdffr</div>
+                
+                <div class="fimageframe">
+                    <img class="fimage" src="kuvat/kuva5.jpg">
+                </div>
+                
+                <div class="username">afregs</div>
+                <div class="comments">arfera</div>
+                <div class="ratings">gvgt</div>
+            </div>
             
         </div>
-
-
-
     </div>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
