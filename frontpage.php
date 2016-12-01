@@ -26,7 +26,7 @@ include("iheader.php");
                      <div class="dropdown-content">
                         <a href="frontpage.php">Home</a>
                         <a href="profile.php">Profile</a>
-                        <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Settings</a>
+                        <a href="settings.php">Settings</a>
                         <a href="logout.php">Log out</a>
                     </div>
             </div>
