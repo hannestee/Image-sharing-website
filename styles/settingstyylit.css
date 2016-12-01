@@ -56,6 +56,17 @@ p.settings {
     margin-top: 2em;
 }
 
+p.info {
+    font-size: 1.25em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    padding: 1.5em;
+    background-color: rgba(255,255,255, .4);
+    border: 1px solid rgb(185,65,0);
+    
+}
+
 h1.settings{
     font-size: 2em;
     font-family: "Verdana", Geneva, sans-serif;
@@ -99,6 +110,15 @@ h1.settings{
     padding: 3em;
     box-sizing: border-box;
     margin-top: 8em;
+}
+
+.infosisalto {
+    position: relative;
+    float: right;
+    margin-top: -44.8em;
+    margin-right: 3em;
+    width: 35%;
+    
 }
 
 .settingsimage {
