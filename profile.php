@@ -27,7 +27,7 @@ include("iheader.php");
                      <div class="dropdown-content">
                         <a href="frontpage.php">Home</a>
                         <a href="profile.php">Profile</a>
-                        <a href="https://users.metropolia.fi/%7Ealeksr/nettisivu/asd">Settings</a>
+                        <a href="settings.php">Settings</a>
                         <a href="logout.php">Log out</a>
                     </div>
             </div>
@@ -49,6 +49,16 @@ include("iheader.php");
         
         <div class="backgroundhidden"></div>
         <div class="profilebackground">
+            
+            <div class="profileinfo">
+                <img class="profilepic" src="graphics/profiilikuva.jpg">
+                <div class="upload">
+                    <form action="up.php" method="post" enctype="multipart/form-data">
+                        <input type="file" value="asdasd" name="fileToUpload" id="fileToUpload">
+                        <input type="submit" value="Upload image" name="submit">
+                    </form>
+                </div>
+            </div>
             
             <div class="responsive">
                 <div class="imageframe">
