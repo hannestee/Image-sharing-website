@@ -327,6 +327,25 @@ include("iheader.php");
                     <input class="syotemitat" style="margin-top:3em" type="submit" name="submit" value="Save"><br>
             
                 </form> 
+                <div class="infosisalto">
+                    <h1 class="settings" style="padding-left: 0.9em; padding-top: 0.7em; padding-bottom: 0.4em">User info</h1>
+                    <p class="info">
+                    <?php
+                        if($_SESSION['loggedIn'] == "yes"){
+                            echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
+                            echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
+                            echo nl2br ("Email: " . $_SESSION['email'] ."\n"."\n");
+                            echo nl2br ("Country: " . $_SESSION['country']. "\n"."\n");
+                            echo nl2br ("Birthdate: " . $_SESSION['birthdate']. "\n"."\n");
+                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n"."\n");
+                            
+                        } else {
+                            echo ("Username: Guest");
+                        }
+                    ?>    
+                    </p>
+                </div>
+                
                 
             </div> 
         </div>
