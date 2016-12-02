@@ -36,13 +36,15 @@ include("iheader.php");
             <img class="profiilikuva" src="graphics/profiilikuva.jpg">
             
             <div class="user">
-             <?php
+            <p class="loggedin">
+            <?php
                 if($_SESSION['loggedIn'] == "yes"){
-                echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
+                    echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
                 } else {
-                echo ("Guest");
+                    echo ("Guest");
                 }
-                ?>
+            ?>
+            </p>
             </div>
             
         </div>
@@ -289,25 +291,4 @@ include("iheader.php");
     
 </body>
 </html>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
