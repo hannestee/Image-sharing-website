@@ -35,13 +35,15 @@ include("iheader.php");
             <img class="profiilikuva" src="graphics/profiilikuva.jpg">
             
             <div class="user">
+                <p class="loggedin">
                 <?php
-                if($_SESSION['loggedIn'] == "yes"){
-                echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
-                } else {
-                echo ("Vieras");
-                }
+                    if($_SESSION['loggedIn'] == "yes"){
+                        echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
+                    } else {
+                        echo ("Guest");
+                    }
                 ?>
+                </p>
             </div>
             
         </div>
@@ -91,22 +93,6 @@ include("iheader.php");
     </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
