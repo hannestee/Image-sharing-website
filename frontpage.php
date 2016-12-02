@@ -38,7 +38,7 @@ include("iheader.php");
                 <p class="loggedin">
                 <?php
                     if($_SESSION['loggedIn'] == "yes"){
-                        echo ("Logged in: " . $_SESSION['username2']). " " . $_SESSION['title'];
+                        echo ("Logged in: " . $_SESSION['username2']). " [" . $_SESSION['title'] ."]";
                     } else {
                         echo ("Guest");
                     }
