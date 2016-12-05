@@ -4,7 +4,7 @@ include_once("iheader.php");
 if(isset($_POST["submit"])){
     $datat['username'] = $_POST['username'];
     $datat['email'] = $_POST['email'];    
-    $datat['country'] = $_POST['contry'];
+    $datat['country'] = $_POST['country'];
     $datat['password'] = hash('sha256', $_POST['password']."ayy");
     if(filter_var($datat['email'], FILTER_VALIDATE_EMAIL)) { 
     try {
