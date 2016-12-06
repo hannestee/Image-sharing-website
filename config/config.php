@@ -1,9 +1,19 @@
 <?php
+//define('SITE_ROOT', '/~hannest/projektinhakemisto/');
 
+/*Poistetaan vanhat käyttämättömät sessiot aina kun uusi sessio käynnistetään
+* Roskien kerääjä hoitaa tämän (Garbage collection)
+* Vähentää riskiä jottei vanhojen sessioiden tietoja voisi jäljittää
+* Määrittele myös tallennuspaikka 
+*/
+//session_save_path('/home1-3/k/karita/public_html/projektihakemisto/session');
+//ini_set('session.gc_probability', 1);
+// Cookie voimassa kunnes selain suljetaan eli myös sessio vanhenee silloin
+//session_set_cookie_params ( 0, SITE_ROOT ); the
 //Tietokanta
 $user = 'hannest';        //Käytäjänimi 
 $pass = 'harambe';        //Salasana
-$host = 'mysql.metropolia.fi';  //Tietokantapalvelin
+$host = 'localhost';  //Tietokantapalvelin
 $dbname = 'hannest';        //Tietokanta
 // Muodostetaan yhteys tietokantaan
 try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapaasti valittavissa)
@@ -17,6 +27,24 @@ try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapa
             //Kirjoitetaan mahdollinen virheviesti tiedostoon
     file_put_contents('log/DBErrors.txt', 'Connection: '.$e->getMessage()."\n", FILE_APPEND);
 } //HUOM hakemistopolku!
+
+function getNewestMedia($DBH, $count){
+   try {
+      //Haetaan $count muuttujan arvon verran uusimpia kuvia
+      $mediaTuotteet = array(); //Taulukko haettaville kuva-olioille (mediatuote)
+		$query1 = "SELECT * FROM ga_imgdata ORDER BY ga_imgdata.id DESC LIMIT 5";
+		$STH = $DBH->query($query1);
+      $STH->setFetchMode(PDO::FETCH_OBJ);  //yksi rivi objektina
+      while($mediaTuote = $STH->fetch()){
+          $mediaTuotteet[] = $mediaTuote; //LisÃ¤tÃ¤Ã¤n objekti taulukon loppuun
+      }
+      return $mediaTuotteet;
+	} catch(PDOException $e) {
+      file_put_contents('log/DBErrors.txt', 'getNewMedia(): '.$e->getMessage()."\n", FILE_APPEND);
+      return false;
+	}
+}
+
 
 //This works in 5.2.3
 //First function turns SSL on if it is off.
