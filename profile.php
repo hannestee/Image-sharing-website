@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
+unset($_SESSION['viesti']);
 include("iheader.php");
-
 ?>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -55,8 +55,9 @@ include("iheader.php");
             <div class="profileinfo">
                 <img class="profilepic" src="graphics/profiilikuva.jpg">
                 <div class="upload">
-                    <form action="up.php" method="post" enctype="multipart/form-data">
-                        <input type="file" value="asdasd" name="fileToUpload" id="fileToUpload">
+                    <form action="upload/up.php" method="post" enctype="multipart/form-data">
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+						<input type="text" name="imgName" id="imageName" placeholder="Image name" required>
                         <input type="submit" value="Upload image" name="submit">
                     </form>
                 </div>
