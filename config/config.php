@@ -13,7 +13,7 @@
 //Tietokanta
 $user = 'hannest';        //Käytäjänimi 
 $pass = 'harambe';        //Salasana
-$host = 'localhost';  //Tietokantapalvelin
+$host = 'mysql.metropolia.fi';  //Tietokantapalvelin
 $dbname = 'hannest';        //Tietokanta
 // Muodostetaan yhteys tietokantaan
 try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapaasti valittavissa)
