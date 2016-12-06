@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php
+unset($_SESSION['viesti']);
 include("iheader.php");
-
 ?>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -47,46 +47,35 @@ include("iheader.php");
             </div>
             
         </div>
-
+		
+		<?php
+            if($mediat = getNewestMedia($DBH,5)){
+            foreach($mediat as $media){
+			//HUOM -> notaatio, koska $media on OLIO sisältäen kuvan tiedot!!
+			//mediat on puolestaan taulukko näistä olioista
+        ?>
+		
         <div class="tausta1">
             
             <div class="content">
-                <div class="imagename">asdsad</div>
-                <div class="date">asdasasdfsdgdgdffr</div>
+                <div class="imagename"><?php echo($media->name); ?></div>
+                <div class="date"><?php echo($media->uploadtime); ?></div>
                 
                 <div class="fimageframe">
-                    <img class="fimage" src="kuvat/kuva2.jpg">
+                   <a href="<?php echo("upload/uploads/$media->url");?>">
+                    <img class="fimage" src="<?php echo("upload/uploads/$media->url");?>"></a>
                 </div>
                 
                 <div class="username">afregs</div>
                 <div class="comments">arfera</div>
                 <div class="ratings">gvgt</div>
-            </div>
-            
-            <div class="content">
-                <div class="imagename">asdsad</div>
-                <div class="date">asdasasdfsdgdgdffr</div>
-                
-                <div class="fimageframe">
-                    <img class="fimage" src="kuvat/kuva4.jpg">
-                </div>
-                
-                <div class="username">afregs</div>
-                <div class="comments">arfera</div>
-                <div class="ratings">gvgt</div>
-            </div>
-            
-            <div class="content">
-                <div class="imagename">asdsad</div>
-                <div class="date">asdasasdfsdgdgdffr</div>
-                
-                <div class="fimageframe">
-                    <img class="fimage" src="kuvat/kuva5.jpg">
-                </div>
-                
-                <div class="username">afregs</div>
-                <div class="comments">arfera</div>
-                <div class="ratings">gvgt</div>
+				<?php
+                    }
+                 }else{
+                       echo("Haku meni plörinäks");
+                 }
+
+               ?>
             </div>
             
         </div>
