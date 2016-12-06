@@ -10,26 +10,24 @@ if(isset($_POST["submit"])){
     try {
         $stm = $DBH->prepare("INSERT INTO ga_users (username, password, email, country, title) VALUES (:username, :password, :email, :country, 'Newbie')");
         if($stm->execute($datat)){
-                echo ("aa");
                 $_SESSION['username'] = $datat['username'];
                 $_SESSION['email'] = $datat['email'];
                 $_SESSION['country'] = $datat['country'];
-                $_SESSION['viesti'] = "Voit kirjautua" . $_SESSION['email'];
+				$_SESSION['title'] = 'Newbie';
+                $_SESSION['viesti'] = "Welcome, " . $_SESSION['username'] . ". You can log in now";
                 redirect("index.php");
             } else {
                 $_SESSION['viesti'] = "en voi hyvin";
-                echo ("eee");
                 redirect("index.php");
             }
         }
         catch(PDOException $e){
-            $_SESSION['viesti'] = "Tietokantaongelma"; //$e.getMessage()")
+            $_SESSION['viesti'] = "DB error"; //$e.getMessage()")
             redirect("index.php");
-            echo ("sss");
         }
         } else {
-            echo("Huono sähköposti");
-            $_SESSION['viesti'] = "Väärä email";
+            echo("Bad email");
+            $_SESSION['viesti'] = "Wrong email";
             redirect("index.php");
     }
 }
