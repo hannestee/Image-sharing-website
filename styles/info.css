@@ -1,0 +1,102 @@
+p.commentsheader {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+.infobackground {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    background-color: whitesmoke;
+}
+
+.infobackground1 {
+    width: 100%;
+    height: 100%;
+    padding-top: 200px;
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+.infocontent {
+    margin-top: 0em;
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.infoimageframe {
+    border-top: 0.5px solid rgb(185,70,25);
+    border-bottom: 0.5px solid rgb(185,70,25);
+    margin: auto;
+    max-height: 90vh;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+}
+
+.infoimage {
+    display: block;
+    margin: auto;
+    max-height: 90vh;
+    max-width: 100%;
+    height: auto;
+}
+
+.infoimagename, .infodate, .infousername, .inforatings {
+    width: 50%;
+    text-align: center;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.25em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
+.infoimagename, .infousername {
+    border-right: 1px solid rgb(185,70,25);
+}
+
+.infocomments {
+    width: 90%;
+    background-color: #555555;
+    height: 20em;
+    margin: auto;
+    margin-top: 5em;
+    box-sizing: border-box;
+}
+
+@media only screen and (orientation: landscape) {
+    .infocomments {
+        width: 70%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

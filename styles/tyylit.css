@@ -169,18 +169,18 @@ hr {
 .content {
     margin-top: 0em;
     width: 100%;
-    float: left;
     background-color: whitesmoke;
     margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .fimageframe {
-    position: relative;
     border-top: 0.5px solid rgb(185,70,25);
     border-bottom: 0.5px solid rgb(185,70,25);
+    width: 100%;
     margin: auto;
     max-height: 80vh;
-    margin-top: 4.05em;
     background-color: rgb(250, 250, 250);
 }
 
@@ -193,8 +193,6 @@ hr {
 }
 
 .imagename, .date, .username, .comments, .ratings {
-    position: relative;
-    float: left;
     width: 33.3333%;
     text-align: center;
     padding: 1em;
@@ -207,6 +205,10 @@ hr {
 
 .imagename, .username, .comments {
     border-right: 1px solid rgb(185,70,25);
+}
+
+.username, .comments, .ratings {
+    margin-bottom: 1em;
 }
 
 .logintausta {
