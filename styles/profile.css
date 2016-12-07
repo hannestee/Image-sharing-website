@@ -1,3 +1,12 @@
+p.info {
+    font-size: 1.25em;
+    font-family: "Verdana", Geneva, sans-serif;
+    color: white;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+         
+}
+
 .backgroundhidden {
     position: fixed;
     left: 50%;
@@ -43,15 +52,29 @@
 .profilepic {
     position: relative;
     float: left;
-    margin-left: 2.5em;
-    margin-top: 2.5em;
+    margin-left: 1.9em;
+    margin-top: 1.7em;
     height: 80%;
+    box-sizing: border-box;
+}
+
+.infosisalto {
+    position: relative;
+    float: left;
+    height: 80%;
+    width: 25%;
+    box-sizing: border-box;
+    border-left: 1px solid rgb(185,70,25);
+    margin-top: 1.7em;
+    margin-left: 1.9em;
+    padding-left: 1em;
+
 }
 
 .upload {
     position: relative;
     float: right;
-    width: 300px;
+    width: 20%;
     margin-top: 2em;
     margin-right: 2em;
 }
@@ -82,11 +105,11 @@ input[type=submit]:hover {
 input[type=text] {
     float: right;
     width: 100%;
-    border: 2px solid #555555;
+    border: 2px solid rgb(185,70,25);
     padding: 0.5em;
     margin: 1px;
     color: white;
-    background-color: rgb(185,70,25);
+    background-color: #555555;
     box-sizing: border-box;
     font-size: 1.25em;
     font-family: "Verdana", Geneva, sans-serif;
@@ -168,16 +191,3 @@ input[type=file]:hover {
     word-spacing: 2px;
     letter-spacing: 1px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
