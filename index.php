@@ -9,6 +9,7 @@ include("iheader.php");
                 if($user){ 
                     $_SESSION['loggedIn'] = "yes";
                     $_SESSION['username2'] = $user->username;
+                    $_SESSION['userid'] = $user->id;
                     $_SESSION['email'] = $user->email;
                     $_SESSION['birthdate'] = $user->birthdate;
                     $_SESSION['country'] = $user->country;
