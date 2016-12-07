@@ -51,35 +51,37 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 		try {
-			echo "asdasd";
-		$query1 = "SELECT id FROM ga_users WHERE id = '1'";
-		$STH = $DBH->query($query1);
-		$query2 = "SELECT COUNT(*) FROM ga_imgdata";
-		$STH2 = $DBH->query($query2);
-		
-		echo "asdasd";
+
+		echo "testi58";
         $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime) VALUES (:1url, :1name, NOW())"); 
+        
+        
+        echo "testi61";
 		$stm->execute(array(
 		"1url" => ($_FILES['fileToUpload']['name']),
 		"1name" => ($imgName)
 		));
 		
-		$datat['id'] = intval($STH);
-		$datat['imgid'] = intval($STH2);
-		$stm2 = $DBH->prepare("INSERT INTO ga_img (uploaderID, imgID) VALUES (:id, :imgid)");
+		$kuvaid = $DBH->lastInsertId();
+		echo "testi66";
+		$datat['id'] = $_SESSION['userid'];
+		$datat['imgid'] = $kuvaid;
+		print_r($datat);
+		$stm2 = $DBH->prepare("INSERT INTO ga_img (uploaderID, imgID) VALUES (:id, 					:imgid)");
 		if($stm2->execute($datat)){
                 $_SESSION['id'] = $datat['id'];
+                $_SESSION['imgid'] = $datat['imgid'];
 		//$stm2->execute(array(
 		//"id" => ($STH)
 		//));	
 		} else {
                 $_SESSION['viesti'] = "en voi hyvin";
-                redirect("../frontpage.php");
+                //redirect("../frontpage.php");
 		}
 		}catch(PDOException $e){
             $_SESSION['viesti'] = "Tietokantaongelma"; //$e.getMessage()")
 		}
-		redirect("../frontpage.php");
+		//redirect("../frontpage.php");
     } else {
         echo "Sorry, there was an error uploading your file.";
 		
@@ -87,7 +89,7 @@ if ($uploadOk == 0) {
 }
 } else {
 	$_SESSION['viesti'] = "You aren't logged in";
-	redirect("../frontpage.php");
+	//redirect("../frontpage.php");
 	
 }
 
