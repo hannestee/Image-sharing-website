@@ -51,7 +51,7 @@ p.loggedin {
     letter-spacing: 1px;
     padding: 1em;
     background-color: rgba(255,255,255, .4);
-    border: 1px solid rgb(185,65,0);  
+    border: 1px solid rgb(185,70,25);  
 }
 
 .tausta {
@@ -123,7 +123,7 @@ p.loggedin {
 .user {
     position: relative;
     float: right;
-    margin-top: 4.5em;
+    margin-top: 3.25em;
     margin-right: 2em;
 }
 
