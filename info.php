@@ -57,7 +57,7 @@ include("iheader.php");
                 <div class="infodate">asasadsads</div>
                 
                 <div class="infoimageframe">
-                    <img class="infoimage" src=kuvat/kuva4.jpg>
+                    <img class="infoimage" src=kuvat/kuva3.jpg>
                 </div>
                 
                 <div class="infousername">afregs</div>
@@ -65,6 +65,11 @@ include("iheader.php");
 				
                 <div class="infocomments">
                     <p class="commentsheader">COMMENTS</p>
+                    
+                    <form method="post">
+                        <input type="text" name="comment" id="cmnt" placeholder="Write a comment" required>
+                        <input type="submit" value="Post" name="submit">
+                    </form>
                 </div>
                 
             </div>
