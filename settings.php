@@ -38,7 +38,7 @@ if($_SESSION['loggedIn'] == "yes")  {
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <img class="profiilikuva" src="graphics/profiilikuva.jpg">
+            <a href="profile.php" target="_self"><img class="profiilikuva" src="graphics/profiilikuva.jpg"></a>
             
             <div class="user">
             <p class="loggedin">
