@@ -49,11 +49,14 @@ p.menu {
 }
 
 p.settings {
-    font-size: 0.9em;
+    width: 100%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 1em;
     font-family: "Verdana", Geneva, sans-serif;
     word-spacing: 2px;
     letter-spacing: 1px;
-    margin-top: 2em;
 }
 
 p.info {
@@ -75,6 +78,22 @@ p.loggedin {
     padding: 1em;
     background-color: rgba(255,255,255, .4);
     border: 1px solid rgb(185,65,0);  
+}
+
+p.settingsheader {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.5em;
+    word-spacing: 2px;
+    letter-spacing: 1px; 
+}
+
+p.settingsheader2 {
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.5em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    margin-top: 5.2em;
+    padding-bottom: 0.4em;
 }
 
 h1.settings{
@@ -250,8 +269,12 @@ input[type=submit]:hover {
 }
 
 .syotemitat {
-    width: 35%; 
-    height: 2.5em
+    width: 35%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    font-family: "Verdana", Geneva, sans-serif;
 }
 
 .reg {
