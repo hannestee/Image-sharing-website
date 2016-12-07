@@ -76,12 +76,12 @@ if ($uploadOk == 0) {
 		//));	
 		} else {
                 $_SESSION['viesti'] = "en voi hyvin";
-                //redirect("../frontpage.php");
+                redirect("../frontpage.php");
 		}
 		}catch(PDOException $e){
             $_SESSION['viesti'] = "Tietokantaongelma"; //$e.getMessage()")
 		}
-		//redirect("../frontpage.php");
+		redirect("../frontpage.php");
     } else {
         echo "Sorry, there was an error uploading your file.";
 		
@@ -89,7 +89,7 @@ if ($uploadOk == 0) {
 }
 } else {
 	$_SESSION['viesti'] = "You aren't logged in";
-	//redirect("../frontpage.php");
+	redirect("../frontpage.php");
 	
 }
 
