@@ -10,7 +10,7 @@ include("iheader.php");
     
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
-    <title>Nettisivu</title>
+    <title>Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
 </head>
@@ -27,7 +27,13 @@ include("iheader.php");
                         <a href="frontpage.php">Home</a>
                         <a href="profile.php">Profile</a>
                         <a href="settings.php">Settings</a>
-                        <a href="logout.php">Log out</a>
+                        <a href="logout.php"><?php
+                  						  if($_SESSION['loggedIn'] == "yes"){
+                    				    echo ("Log out");
+                    						} else {
+                        				echo ("Register");
+                   						 }
+                ?></a>
                     </div>
             </div>
             
@@ -53,8 +59,26 @@ include("iheader.php");
             <?php
                 if($mediat = getNewestMedia($DBH,5)){
                     foreach($mediat as $media){
+                    
+                    
+                    $datat = array('uploadaaja' => $media->id);                 
+                    
+                    try {
+					$query1 = "SELECT ga_users.username FROM ga_users, ga_img, ga_imgdata WHERE ga_img.imgID=:uploadaaja AND ga_users.id = ga_img.uploaderID LIMIT 1";
+					print_r($query2);
+		            $STH = $DBH->prepare($query1);
+		            print_r($STH2);
+		            $STH->execute($datat);
+					
+		          	$uploader = $STH->fetch();         	
                     //HUOM -> notaatio, koska $media on OLIO sisältäen kuvan tiedot!!
                     //mediat on puolestaan taulukko näistä olioista
+                    }catch(PDOException $e) {
+        			echo "Login DB error.";
+        			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
+   					}
+                    
+                    
             ?>
             
             <div class="content">
@@ -66,9 +90,9 @@ include("iheader.php");
                     <img class="fimage" src="<?php echo("upload/uploads/$media->url");?>"></a>
                 </div>
                 
-                <div class="username">afregs</div>
-                <div class="comments">arfera</div>
-                <div class="ratings">gvgt</div>
+                <div class="username"><?php echo($uploader[0]);?></div>
+                <div class="comments">Comments: <?php echo($media->commentcount);?></div>
+                <div class="ratings">Rating: <?php echo($media->likes);?></div>
 				<?php
                     }
                  }else{
