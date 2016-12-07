@@ -59,7 +59,7 @@ if($_SESSION['loggedIn'] == "yes")  {
             <img class="settingsimage" src="graphics/settings2.jpg">   
             <div class="settingssisalto">
  
-                            <h1 class="settings">Settings</h1>
+                            <p class="settingsheader">SETTINGS</p>
                             <form method="POST" action="updateUser.php">
             
                             <p class="settings">Birthdate</p>
@@ -69,7 +69,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                             <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}">
 
                             <p class="settings">Country:</p>
-                            <select id="country" name="country">
+                            <select class="syotemitat" id="country" name="country">
                                 <option value=" " selected="selected">Select your country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -324,18 +324,18 @@ if($_SESSION['loggedIn'] == "yes")  {
 
                             <p class="settings">Old password:</p>
                             <input class="syotemitat" type="password" name="password" placeholder="Enter old password" required>
-                            <br><br>
+                            <br>
 
                             <p class="settings">New password:</p>
                             <input class="syotemitat" type="password" name="newPassword" placeholder="Enter new password">
-                            <br><br>
+                            <br>
 
                             <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
 
                             </form>
                                        
                 <div class="infosisalto">
-                    <h1 class="settings" style="padding-left: 0.9em; padding-top: 0.7em; padding-bottom: 0.4em">User info</h1>
+                    <p class="settingsheader2">USER INFO</p>
                     <p class="info">
                     <?php
                         if($_SESSION['loggedIn'] == "yes"){
