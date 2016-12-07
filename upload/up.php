@@ -57,7 +57,6 @@ if ($uploadOk == 0) {
 		$query2 = "SELECT COUNT(*) FROM ga_imgdata";
 		$STH2 = $DBH->query($query2);
 		
-		echo $STH2;
 		echo "asdasd";
         $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime) VALUES (:1url, :1name, NOW())"); 
 		$stm->execute(array(
