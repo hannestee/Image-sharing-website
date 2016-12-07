@@ -1,6 +1,6 @@
 p.commentsheader {
     font-family: "Verdana", Geneva, sans-serif;
-    font-size: 1.25em;
+    font-size: 1.5em;
     word-spacing: 2px;
     letter-spacing: 1px;
 }
@@ -63,11 +63,45 @@ p.commentsheader {
 
 .infocomments {
     width: 90%;
-    background-color: #555555;
+    background-color: whitesmoke;
     height: 20em;
     margin: auto;
     margin-top: 5em;
     box-sizing: border-box;
+}
+
+input[type=text] {
+    width: 79%;
+    border: 2px solid #555555;
+    padding: 1em;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: "Verdana", Geneva, sans-serif;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+input[type=submit] {
+    width: 20%;
+    border: 2px solid #555555;
+    padding: 1em;
+    color: white;
+    background-color: rgb(185,70,25);
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: "Verdana", Geneva, sans-serif;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #555555;
+    border: 2px solid rgb(185,70,25);
+}
+
+input[type=submit]:active {
+    opacity: 0.3;
 }
 
 @media only screen and (orientation: landscape) {
