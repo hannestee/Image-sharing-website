@@ -3,7 +3,13 @@
 <?php
 unset($_SESSION['viesti']);
 include("iheader.php");
+    
+if($_SESSION['loggedIn'] == "yes")  {
+    }else {
+        redirect("index.php");
+    }    
 ?>
+    
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -51,9 +57,36 @@ include("iheader.php");
         
         <div class="backgroundhidden"></div>
         <div class="profilebackground">
-            
             <div class="profileinfo">
                 <img class="profilepic" src="graphics/profiilikuva.jpg">
+                
+                <div class="infosisalto">
+                    <p class="info">
+                    <?php
+                        function ageCalculator($dob){
+                            if(!empty($dob)){
+                                $birthdate = new DateTime($dob);
+                                $today   = new DateTime('today');
+                                $age = $birthdate->diff($today)->y;
+                                return $age;
+                            }else{
+                                return 0;
+                            }
+                        }
+                        $dob = $_SESSION['birthdate'];
+        
+                        if($_SESSION['loggedIn'] == "yes"){
+                            echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
+                            echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
+                            echo nl2br ("Country: " . $_SESSION['country']. "\n"."\n");
+                            echo nl2br ("Age: " . ageCalculator($dob). "\n"."\n");  
+                        } else {
+                            echo ("Username: Guest");
+                        }
+                       ?> 
+                    </p>
+                </div>
+                
                 <div class="upload">
                     <form action="upload/up.php" method="post" enctype="multipart/form-data">
                         <input type="file" name="fileToUpload" id="fileToUpload">
