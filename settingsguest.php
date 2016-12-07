@@ -2,14 +2,11 @@
 <html>
 <?php
 include("iheader.php");
-?>
-
-<?php
+    
 if($_SESSION['loggedIn'] == "yes"){
     redirect("settings.php");
-}  
+    }  
 ?>    
-    
        
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -39,12 +36,16 @@ if($_SESSION['loggedIn'] == "yes"){
                     </div>
             </div>
             
-            <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <img class="profiilikuva" src="graphics/profiilikuva.jpg">
+            <div class="logo">
+                <a href="frontpage.php" target="_self">
+                <img src="graphics/logo.png" height="60em">
+                </a>
+            </div>
+                <img class="profiilikuva" src="graphics/profiilikuva.jpg">
             
             <div class="user">
-            <p class="loggedin">
-            <?php
+                <p class="loggedin">
+                <?php
                 if($_SESSION['loggedIn'] == "yes"){
                     echo ("Logged in: " . $_SESSION['username2']). "  [" . $_SESSION['title']. "]" ;
                 } else {
@@ -59,20 +60,19 @@ if($_SESSION['loggedIn'] == "yes"){
             
             <img class="settingsimage" src="graphics/settings2.jpg">   
             <div class="settingssisalto">
-                <h1 class="settings">Settings</h1>
+                <p class="settingsheader">SETTINGS</p>
             
-            <a href="index.php" style="text-decoration: none">    
-            <input class="login" style="width: 13em; height: 87px; padding 2em" name="login" value="Login" type="submit"></a>
+                <a href="index.php" style="text-decoration: none">    
+                <input class="login" style="width: 13em; height: 87px; padding 2em" name="login" value="Login" type="submit"></a>
                 
-            <a href="index.php" style="text-decoration: none">    
-            <input class="login" style="width: 13em; height: 87px" name="login" value="Register" type="submit"></a>
+                <a href="index.php" style="text-decoration: none">    
+                <input class="login" style="width: 13em; height: 87px" name="login" value="Register" type="submit"></a>
                 
                 <div class="infosisalto">
-                    <h1 class="settings" style="margin-top: 20.55em">User info</h1>
+                    <p class="settingsheader" style="margin-top: 27.6em">USER INFO</p>
                     <p class="info">Username: Guest</p>
                     
                 </div>    
-                
                 
             </div> 
         </div>
