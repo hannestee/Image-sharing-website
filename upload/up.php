@@ -53,7 +53,7 @@ if ($uploadOk == 0) {
 		try {
 
 		echo "testi58";
-        $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime) VALUES (:1url, :1name, NOW())"); 
+        $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime, commentcount, likes) VALUES (:1url, :1name, NOW(), 0, 0)"); 
         
         
         echo "testi61";
