@@ -13,12 +13,13 @@ include("iheader.php");
     <title>Nettisivu</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="styles/info.css">
 </head>
 
     
 <body>
 <!--    <div class="otsikkowide"></div>-->
-    <div class="tausta">
+    <div class="infobackground">
         
         <div class="otsikko">
             <div class="dropdown">
@@ -48,40 +49,51 @@ include("iheader.php");
             
         </div>
 		
-        <div class="tausta1">
+        <div class="infobackground1">
             
-            <?php
-                if($mediat = getNewestMedia($DBH,5)){
-                    foreach($mediat as $media){
-                    //HUOM -> notaatio, koska $media on OLIO sisältäen kuvan tiedot!!
-                    //mediat on puolestaan taulukko näistä olioista
-            ?>
-            
-            <div class="content">
-                <div class="imagename"><?php echo($media->name); ?></div>
-                <div class="date"><?php echo($media->uploadtime); ?></div>
+            <div class="infocontent">
                 
-                <div class="fimageframe">
-                   <a href="<?php echo("upload/uploads/$media->url");?>">
-                    <img class="fimage" src="<?php echo("upload/uploads/$media->url");?>"></a>
+                <div class="infoimagename">asasda</div>
+                <div class="infodate">asasadsads</div>
+                
+                <div class="infoimageframe">
+                    <img class="infoimage" src=kuvat/kuva4.jpg>
                 </div>
                 
-                <div class="username">afregs</div>
-                <div class="comments">arfera</div>
-                <div class="ratings">gvgt</div>
-				<?php
-                    }
-                 }else{
-                       echo("Haku meni plörinäks");
-                 }
-
-               ?>
+                <div class="infousername">afregs</div>
+                <div class="inforatings">gvgt</div>
+				
+                <div class="infocomments">
+                    <p class="commentsheader">COMMENTS</p>
+                </div>
+                
             </div>
-            
         </div>
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
