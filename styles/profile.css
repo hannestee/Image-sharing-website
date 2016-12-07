@@ -108,8 +108,8 @@ input[type=text] {
     border: 2px solid rgb(185,70,25);
     padding: 0.5em;
     margin: 1px;
-    color: white;
-    background-color: #555555;
+    color: black;
+    background-color: whitesmoke;
     box-sizing: border-box;
     font-size: 1.25em;
     font-family: "Verdana", Geneva, sans-serif;
