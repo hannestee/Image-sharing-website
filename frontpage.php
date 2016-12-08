@@ -28,12 +28,12 @@ include("iheader.php");
                         <a href="profile.php">Profile</a>
                         <a href="settings.php">Settings</a>
                         <a href="logout.php"><?php
-                  						  if($_SESSION['loggedIn'] == "yes"){
-                    				    echo ("Log out");
-                    						} else {
-                        				echo ("Register");
-                   						 }
-                ?></a>
+                            if($_SESSION['loggedIn'] == "yes"){
+                                echo ("Log out");
+                    		} else {
+                        		echo ("Register");
+                            }
+                        ?></a>
                     </div>
             </div>
             
@@ -60,7 +60,6 @@ include("iheader.php");
                 if($mediat = getNewestMedia($DBH,5)){
                     foreach($mediat as $media){
                     
-                    
                     $datat = array('uploadaaja' => $media->id);                 
                     
                     try {
@@ -77,8 +76,6 @@ include("iheader.php");
         			echo "Login DB error.";
         			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
    					}
-                    
-                    
             ?>
             
             <div class="content">
@@ -101,7 +98,6 @@ include("iheader.php");
 
                ?>
             </div>
-            
         </div>
     </div>
 </body>

@@ -60,18 +60,18 @@ if($_SESSION['loggedIn'] == "yes"){
             
             <img class="settingsimage" src="graphics/settings2.jpg">   
             <div class="settingssisalto">
-                <p class="settingsheader">SETTINGS</p>
+                
+                <div class="settingsheader">SETTINGS</div>
+                <div class="settingsheader2">USER INFO</div>
             
                 <a href="index.php" style="text-decoration: none">    
-                <input class="login" style="width: 13em; height: 87px; padding 2em" name="login" value="Login" type="submit"></a>
+                <input class="settingslogin" name="login" value="Login" type="submit"></a>
                 
                 <a href="index.php" style="text-decoration: none">    
-                <input class="login" style="width: 13em; height: 87px" name="login" value="Register" type="submit"></a>
+                <input class="settingslogin" name="login" value="Register" type="submit"></a>
                 
                 <div class="infosisalto">
-                    <p class="settingsheader" style="margin-top: 27.6em">USER INFO</p>
                     <p class="info">Username: Guest</p>
-                    
                 </div>    
                 
             </div> 
@@ -79,3 +79,22 @@ if($_SESSION['loggedIn'] == "yes"){
     </div>
 </body>  
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

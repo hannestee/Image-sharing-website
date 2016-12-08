@@ -44,9 +44,9 @@ if($_SESSION['loggedIn'] == "yes")  {
             <p class="loggedin">
             <?php
                 if($_SESSION['loggedIn'] == "yes"){
-                echo ("Logged in: " . $_SESSION['username2']). "  [" . $_SESSION['title']. "]" ;
+                    echo ("Logged in: " . $_SESSION['username2']). "  [" . $_SESSION['title']. "]" ;
                 } else {
-                echo ("Guest");
+                    echo ("Guest");
                 }
             ?>
             </p>
@@ -57,19 +57,23 @@ if($_SESSION['loggedIn'] == "yes")  {
         <div class="settingstausta1">
             
             <img class="settingsimage" src="graphics/settings2.jpg">   
+            
             <div class="settingssisalto">
  
-                            <p class="settingsheader">SETTINGS</p>
-                            <form method="POST" action="updateUser.php">
+                <div class="settingsheader">SETTINGS</div>
+                <div class="settingsheader2">USER INFO</div>
+                
+                <div class="hiddencontent">
+                <form class="formi" method="POST" action="updateUser.php">
             
-                            <p class="settings">Birthdate</p>
-                            <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                    <p class="settings">Birthdate:</p>
+                    <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
 
-                            <p class="settings">Phone number:</p>
-                            <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}">
+                    <p class="settings">Phone number:</p>
+                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}">
 
-                            <p class="settings">Country:</p>
-                            <select class="syotemitat" id="country" name="country">
+                    <p class="settings">Country:</p>
+                    <select class="syotemitat" id="country" name="country">
                                 <option value=" " selected="selected">Select your country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -322,20 +326,19 @@ if($_SESSION['loggedIn'] == "yes")  {
                                 <option value="Zimbabwe">Zimbabwe</option>                                
                             </select>
 
-                            <p class="settings">Old password:</p>
-                            <input class="syotemitat" type="password" name="password" placeholder="Enter old password" required>
-                            <br>
+                    <p class="settings">Old password:</p>
+                    <input class="syotemitat" type="password" name="password" placeholder="Enter old password" required>
+                    <br>
 
-                            <p class="settings">New password:</p>
-                            <input class="syotemitat" type="password" name="newPassword" placeholder="Enter new password">
-                            <br>
+                    <p class="settings">New password:</p>
+                    <input class="syotemitat" type="password" name="newPassword" placeholder="Enter new password">
+                    <br>
 
-                            <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
+                    <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
 
-                            </form>
+                </form>
                                        
                 <div class="infosisalto">
-                    <p class="settingsheader2">USER INFO</p>
                     <p class="info">
                     <?php
                         if($_SESSION['loggedIn'] == "yes"){
@@ -352,7 +355,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                        ?> 
                     </p>
                 </div>    
-                
+                </div>
                 
             </div> 
         </div>
