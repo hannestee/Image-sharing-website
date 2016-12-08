@@ -13,6 +13,7 @@ include("iheader.php");
     <title>Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="styles/searchbar.css">
 </head>
 
     
@@ -55,6 +56,12 @@ include("iheader.php");
         </div>
 		
         <div class="tausta1">
+            
+            <div class="searchbar">
+                <form>
+                    <input type="text" name="search" placeholder="Search...">
+                </form>
+            </div>
             
             <?php
                 if($mediat = getNewestMedia($DBH,5)){

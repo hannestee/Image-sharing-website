@@ -61,7 +61,13 @@ include("iheader.php");
                 </div>
                 
                 <div class="infousername">afregs</div>
-                <div class="inforatings">gvgt</div>
+                <div class="inforatings">
+                    <div class="ratingsline">
+                        <img class="ratingsminus" src="graphics/minus.png">
+                        <div class="ratingsnumber">Rating: </div>
+                        <img class="ratingsplus" src="graphics/plus.png">
+                    </div>
+                </div>
 				
                 <div class="infocomments">
                     <p class="commentsheader">COMMENTS</p>
