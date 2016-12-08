@@ -53,14 +53,14 @@ include("iheader.php");
             
             <div class="infocontent">
                 
-                <div class="infoimagename">asasda</div>
-                <div class="infodate">asasadsads</div>
+                <div class="infoimagename">Image name</div>
+                <div class="infodate">Date</div>
                 
                 <div class="infoimageframe">
                     <img class="infoimage" src=kuvat/kuva3.jpg>
                 </div>
                 
-                <div class="infousername">afregs</div>
+                <div class="infousername">Username</div>
                 <div class="inforatings">
                     <div class="ratingsline">
                         <img class="ratingsminus" src="graphics/minus.png">
