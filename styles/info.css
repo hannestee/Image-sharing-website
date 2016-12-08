@@ -29,6 +29,14 @@ p.commentsheader {
     flex-wrap: wrap;
 }
 
+.deleteicon {
+    position: absolute;
+    right: 0;
+    height: 2.5em;
+    margin-right: 1em;
+    margin-top: 0.7em;
+}
+
 .infoimageframe {
     border-top: 0.5px solid rgb(185,70,25);
     border-bottom: 0.5px solid rgb(185,70,25);
