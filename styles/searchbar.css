@@ -1,0 +1,25 @@
+.searchbar {
+    width: 40%;
+    margin-bottom: 1em;
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+
+input[type=text] {
+    width: 20%;
+    padding: 0.5em;
+    border-bottom: 1px solid #555555;
+    border-top: 1px solid #555555;
+    border-left: 1px solid #555555;
+    font-size: 1.25em;
+    font-family: "Verdana", Geneva, sans-serif;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 80%;
+}
