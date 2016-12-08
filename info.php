@@ -16,7 +16,7 @@ include("iheader.php");
     <link rel="stylesheet" type="text/css" href="styles/info.css">
 </head>
 
-    
+
 <body>
 <!--    <div class="otsikkowide"></div>-->
     <div class="infobackground">
@@ -53,6 +53,7 @@ include("iheader.php");
             
             <div class="infocontent">
                 
+                <img class="deleteicon" src="graphics/delete.png">
                 <div class="infoimagename">Image name</div>
                 <div class="infodate">Date</div>
                 
