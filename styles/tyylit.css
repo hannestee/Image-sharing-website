@@ -34,7 +34,7 @@ p.loggedin {
     letter-spacing: 1px;
     padding: 1em;
     background-color: rgba(255,255,255, .4);
-    border: 1px solid rgb(185,70,25);  
+    border: 1px solid rgb(185,70,25);
 }
 
 .tausta {
@@ -50,6 +50,9 @@ p.loggedin {
     width: 100%;
     height: 8.5em;
     margin-top: -0.5em;
+    background: -webkit-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    background: -o-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    background: -moz-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
     background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
     border-bottom: 2px solid rgb(185,70,25);
 }

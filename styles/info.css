@@ -68,6 +68,12 @@ p.commentsheader {
     display: block;
 }
 
+@media only screen and (orientation: portrait) {
+    .ratingsline {
+        width: 80%;
+    }
+}
+
 .ratingsminus {
     display: inline-block;
     height: 2em;

@@ -29,7 +29,10 @@
     height: 5em;
     margin-right: auto;
     margin-left: auto;
-    background-color: white;
+    background: -webkit-linear-gradient(left, white 35%, whitesmoke 50%);
+    background: -o-linear-gradient(left, white 35%, whitesmoke 50%);
+    background: -moz-linear-gradient(left, white 35%, whitesmoke 50%);
+    background: linear-gradient(left, white 35%, whitesmoke 50%);
     border: 1px solid rgba(0,0,0, .2);
     border-radius: 1px;
 }
