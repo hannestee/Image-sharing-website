@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="">
 <?php
 unset($_SESSION['viesti']);
 include("iheader.php");
@@ -70,7 +70,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                                 $age = $birthdate->diff($today)->y;
                                 return $age;
                             }else{
-                                return 0;
+                                return "-";
                             }
                         }
                         $dob = $_SESSION['birthdate'];
@@ -94,235 +94,60 @@ if($_SESSION['loggedIn'] == "yes")  {
                         <input type="submit" value="Upload image" name="submit">
                     </form>
                 </div>
-            </div>
+                
+
             
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">asfsdfsd</div>
             </div>
+                    <?php
+                	if($mediat = getNewestMedia($DBH,5)){
+                    foreach($mediat as $media){
+                    
+                    $datat = array('uploadaaja' => $media->id);                 
+                    
+                    try {
+					$query1 = "SELECT ga_users.username FROM ga_users, ga_img, ga_imgdata WHERE ga_img.imgID=:uploadaaja AND ga_users.id = ga_img.uploaderID LIMIT 1";
+					//print_r($query2);
+		            $STH = $DBH->prepare($query1);
+		            //print_r($STH2);
+		            $STH->execute($datat);
+					
+		          	$uploader = $STH->fetch();   
+		          	//print_r($uploader);      	
+                    //HUOM -> notaatio, koska $media on OLIO sisältäen kuvan tiedot!!
+                    //mediat on puolestaan taulukko näistä olioista
+                    }catch(PDOException $e) {
+        			echo "Login DB error.";
+        			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
+   					}
+           			?>    
+<?php
+                	if ($uploader[0] == $_SESSION['username2']){ ?>
+            <div class="responsive">
             
-            <div class="responsive">
                 <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
+                	<a class="imagelink" href="info.php">
+                    <img class="image" src="<?php echo("upload/uploads/$media->url");?>">
+                    </a>
+                </div>	
+                <div class="imagedesc"><?php echo($media->name); ?></div>
             </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva2.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva4.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva5.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">asfsdfsd</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva2.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva4.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva5.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">asfsdfsd</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva2.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva4.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva5.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">asfsdfsd</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva2.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva4.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva5.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
-            
-            <div class="responsive">
-                <div class="imageframe">
-                    <img class="image" src="kuvat/kuva3.jpg">
-                </div>
-                <div class="imagedesc">strghsrtg</div>
-            </div>
+            		<?php
+            		} 
+            		?>
+            <?php
+                }
+                 }else{
+                       echo("Haku meni plörinäks");
+                } 
+            ?>
         </div>
     
     </div>
-    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script src="main.js"></script>
 </body>
 </html>    
 
