@@ -115,8 +115,19 @@ p.commentsheader {
     border-right: 1px solid rgb(185,70,25);
 }
 
+.commentsheader {
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid rgb(185,70,25);
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1.5em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
+
 input[type=text] {
-    width: 79%;
+    width: 79.7%;
     border: 2px solid #555555;
     padding: 1em;
     box-sizing: border-box;
@@ -128,10 +139,10 @@ input[type=text] {
 
 input[type=submit] {
     width: 20%;
-    border: 2px solid #555555;
     padding: 1em;
     color: white;
     background-color: rgb(185,70,25);
+    border: 2px solid rgb(185,70,25);
     box-sizing: border-box;
     font-size: 1.25em;
     font-family: "Verdana", Geneva, sans-serif;
@@ -142,7 +153,6 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: #555555;
-    border: 2px solid rgb(185,70,25);
 }
 
 input[type=submit]:active {
