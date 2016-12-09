@@ -341,9 +341,9 @@ if($_SESSION['loggedIn'] == "yes")  {
                             echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
                             echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
                             echo nl2br ("Email: " . $_SESSION['email'] ."\n"."\n");
-                            echo nl2br ("Country: " . $_SESSION['country']. "\n"."\n");
                             echo nl2br ("Birthdate: " . $_SESSION['birthdate']. "\n"."\n");
-                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n");
+                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n"."\n");
+                            echo nl2br ("Country: " . $_SESSION['country']. "\n");
                             
                         } else {
                             echo ("Username: Guest");
