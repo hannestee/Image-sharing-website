@@ -1,40 +1,41 @@
  <?php 
 include_once("iheader.php");
-//if($_SESSION['loggedIn'] == ""){
-    if(isset($_POST["save"])){
-    echo("testi2");    
-    $datat['birthdate'] = $_POST['birthdate'];
-    //$datat['phonenumber'] = $_POST['phonenumber'];
-    $datat['username'] = $_GET['username'];
+    if(isset($_GET["save"])){  
+    $datat['birthdate'] = $_GET['birthdate'];
+    $datat['country'] = $_GET['country'];
+    $datat['phonenumber'] = $_GET['phonenumber'];
+    $datat['username'] = $_SESSION['username2'];
     try {
-        //$stm = $DBH->prepare("INSERT INTO ga_users (birthdate) VALUES (:birthdate)");
-        $stm = $DBH->prepare("INSERT INTO ga_users SET birthdate= :birthdate WHERE username = :username");
-        //$stm = $DBH->prepare("UPDATE ga_users SET phonenumber= :phonenumber WHERE username = :username");
-        echo("testi1");
-        if($stm->execute($datat)){
-                echo ("aa");
-                $_SESSION['username'] = $datat['username'];
-                $_SESSION['birthdate'] = $datat['birthdate'];
-                $_SESSION['country'] = $datat['country'];
-                $_SESSION['phonenumber'] = $datat['phonenumber'];
-                $_SESSION['title'] = $datat['title'];
-                redirect("settings.php");
-            } else {
-                $_SESSION['viesti'] = "en voi hyvin";
-                echo ("eee");
-                redirect("settings.php");
-            }
-        }
-        catch(PDOException $e){
-            $_SESSION['viesti'] = "Tietokantaongelma"; //$e.getMessage()")
-            redirect("settings.php");
-            echo ("sss");
-        }
-    }
         
+        $stm = $DBH->prepare("UPDATE ga_users SET birthdate=:birthdate, country=:country, phonenumber=:phonenumber WHERE username =:username");
+        if($stm->execute($datat)){
+                //if(isset($_GET["country"])){  
+                $_SESSION['birthdate'] = $datat['birthdate'];
+                //}
+                //if(isset($_GET["country"])){  
+                $_SESSION['country'] = $datat['country']; 
+                //}
+                //if(isset($_GET["phonenumber"])){ 
+                $_SESSION['phonenumber'] = $datat['phonenumber'];
+                //}
+            redirect("settings.php");
+            }
+        else {
+                $_SESSION['viesti'] = "en voi hyvin1";
+                //redirect("settings.php");
+            echo("testi3");
+            }
+    }
+        catch(PDOException $e){
+            $_SESSION['viesti'] = "Tietokantaongelma"; //$e->getMessage()")
+            //redirect("settings.php");
+            print_r($e);
+        }          
+    }
             else {
-                $_SESSION['viesti'] = "en voi hyvin";
+                $_SESSION['viesti'] = "en voi hyvin2";
                 echo ("error");
-                redirect("settings.php");
+                //redirect("settings.php");
             }    
 ?>
+
