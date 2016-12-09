@@ -21,22 +21,12 @@ include("iheader.php");
             } else if (!empty($_POST["login"])){
                 redirect("frontpage.php");   
             }
-?>  
+        ?>  
     
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <style>
-
-/*
-        html {
-            overflow-y: hidden;
-        }
-*/
-
-    </style>
-    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Login</title>
+    <title>Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/guestbox.css">
     <link rel="stylesheet" type="text/css" href="styles/loginstyles.css">
@@ -46,43 +36,45 @@ include("iheader.php");
     
     <div class="logintausta">
         
-    <!--logintaustabox rajoittaa kirjpalkin, rektaustan ja logon alueen-->
-    <div class="logintaustabox">
-        <div class="loginkirjpalkki">
-            <div class="logonpaikka">
-                <img class="logonpaikka" src="graphics/logo.png">
-            </div>
+        <div class="logintaustabox">
+            
+            <div class="loginkirjpalkki">
+                
+                <div class="logonpaikka">
+                    <img class="logonpaikka" src="graphics/logo.png">
+                </div>
          
                 <fieldset class="loginfieldset">
                     <form method="POST">
-                    <input class="login" style="width: 10em; height: 50px" name="username2" placeholder="Username" required="" type="text">
+                        <input class="login" style="width: 10em; height: 50px" name="username2" placeholder="Username" required="" type="text">
             
-                    <input class="login" style="width: 10em; height: 50px" name="password2" placeholder="Password" required="" type="password">
+                        <input class="login" style="width: 10em; height: 50px" name="password2" placeholder="Password" required="" type="password">
                 
-                    <input class="login" style="width: 5em; height: 50px" name="login" value="Login" type="submit"><br>
+                        <input class="login" style="width: 5em; height: 50px" name="login" value="Login" type="submit"><br>
                     </form>
                 </fieldset>
-        </div>
-        
-	<div class="loginmid">
-            <div class="loginlogo">
-                <img src="graphics/icon_544.jpg" style="width: 34em, height: 34em">
+                
             </div>
+        
+            <div class="loginmid">
+                
+                <div class="loginlogo">
+                    <img src="graphics/icon_544.jpg" style="width: 34em, height: 34em">
+                </div>
 		
-        <div class="loginrektausta">
-            <p class="reghead">Register as a new user</p>
+                <div class="loginrektausta">
+                    <p class="reghead">REGISTER</p>
 
-        <form method="POST" action="saveUser.php">
-            <fieldset width="100%">
+                    <form method="POST" action="saveUser.php">
+                        <fieldset width="100%">
+                            <p class="register">Username:</p>
+                            <input class="reg" name="username" placeholder="Enter a username" required="" type="text">
             
-            <p class="register">Username:</p>
-            <input class="reg" name="username" placeholder="Enter a username" required="" type="text">
+                            <p class="register">E-mail:</p>
+                            <input class="reg" name="email" placeholder="Enter a valid email address" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email">
             
-            <p class="register">E-mail:</p>
-            <input class="reg" name="email" placeholder="Enter a valid email address" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email">
-            
-            <p class="register">Country:</p>
-            <select id="country" name="country">   
+                            <p class="register">Country:</p>
+                            <select id="country" name="country">   
 		<option value=" " selected="selected">Select your country</option>
 		<option value="Afghanistan">Afghanistan</option>
 		<option value="Åland Islands">Åland Islands</option>
@@ -335,32 +327,32 @@ include("iheader.php");
 		<option value="Zimbabwe">Zimbabwe</option>        
             </select>
             
-            <p class="register">Password:</p>
-            <input class="reg" name="password" placeholder="Enter password" required="" type="password"> 
-            <br><br>
+                            <p class="register">Password:</p>
+                            <input class="reg" name="password" placeholder="Enter password" required="" type="password"> 
+                            <br><br>
             
-            <input class="reg" name="submit" value="Register" type="submit">
-            </fieldset>
-            
-        </form>
+                            <input class="reg" name="submit" value="Register" type="submit">
+                        </fieldset>
+                    </form>
+                    
+                </div>
+                
+            </div>
         
-	</div>
+            <a class="guest" href="frontpage.php">
+                <p class="guestfont">ENTER AS GUEST</p>
+            </a>
+            
         </div>
         
-        <a class="guest" href="frontpage.php">
-            <p class="guestfont">ENTER AS GUEST</p>
-        </a>
-    </div>
-        
-    <div class="loginfooter">
-        <div class="footertxt1">Tomi Pohja</div>
-        <div class="footertxt1">Aleksi Ruokola</div>
-        <div class="footertxt1">Hannes Tikkanen</div>
-        <div class="footertxt2">© 2016 IMAGNARY</div>
-    </div>
-        
+        <div class="loginfooter">
+            <div class="footertxt1">Tomi Pohja</div>
+            <div class="footertxt1">Aleksi Ruokola</div>
+            <div class="footertxt1">Hannes Tikkanen</div>
+            <div class="footertxt2">© 2016 IMAGNARY</div>
+        </div>
         
     </div>
-
+    
 </body>
 </html>

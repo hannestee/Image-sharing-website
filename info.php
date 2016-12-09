@@ -71,7 +71,7 @@ include("iheader.php");
                 </div>
 				
                 <div class="infocomments">
-                    <p class="commentsheader">COMMENTS</p>
+                    <div class="commentsheader">COMMENTS</div>
                     
                     <form method="post">
                         <input type="text" name="comment" id="cmnt" placeholder="Write a comment" required>

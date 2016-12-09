@@ -16,7 +16,7 @@ if($_SESSION['loggedIn'] == "yes")  {
     
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
-    <title>Nettisivu</title>
+    <title>Profile - Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
     <link rel="stylesheet" type="text/css" href="styles/profile.css">

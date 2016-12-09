@@ -5,22 +5,16 @@ unset($_SESSION['viesti']);
 include("iheader.php");
 ?>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-
-    <title>Imagnary</title>
+    <title>Home - Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
     <link rel="stylesheet" type="text/css" href="styles/searchbar.css">
 </head>
 
-    
 <body>
-<!--    <div class="otsikkowide"></div>-->
     <div class="tausta">
-        
         <div class="otsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
@@ -52,11 +46,9 @@ include("iheader.php");
                 ?>
                 </p>
             </div>
-            
         </div>
 		
         <div class="tausta1">
-            
             <div class="searchbar">
                 <form>
                     <input type="text" name="search" placeholder="Search...">
@@ -97,13 +89,14 @@ include("iheader.php");
                 <div class="username"><?php echo($uploader[0]);?></div>
                 <div class="comments">Comments: <?php echo($media->commentcount);?></div>
                 <div class="ratings">Rating: <?php echo($media->likes);?></div>
-				<?php
+				
+                <?php
                     }
                  }else{
                        echo("Haku meni plörinäks");
                  }
-
-               ?>
+                ?>
+                
             </div>
         </div>
     </div>

@@ -5,17 +5,14 @@ include("iheader.php");
 
 if($_SESSION['loggedIn'] == "yes")  {
     }else {
-        redirect("settingsguest.php");
+        redirect("index.php");
     }
 ?>
         
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-
-    <title>Nettisivu</title>
+    <title>Settings - Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/settingstyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
@@ -23,9 +20,7 @@ if($_SESSION['loggedIn'] == "yes")  {
 
     
 <body>
-<!--    <div class="otsikkowide"></div>-->
     <div class="settingstausta">
-        
         <div class="settingsotsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
@@ -66,8 +61,8 @@ if($_SESSION['loggedIn'] == "yes")  {
                 </div>
                 
                 <div class="hiddencontent">
+                    
                 <form class="formi" method="POST" action="updateUser.php">
-            
                     <p class="settings">Birthdate:</p>
                     <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
 
@@ -337,7 +332,6 @@ if($_SESSION['loggedIn'] == "yes")  {
                     <br>
 
                     <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
-
                 </form>
                                        
                 <div class="infosisalto">
