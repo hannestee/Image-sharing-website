@@ -59,9 +59,11 @@ if($_SESSION['loggedIn'] == "yes")  {
             <img class="settingsimage" src="graphics/settings2.jpg">   
             
             <div class="settingssisalto">
- 
-                <div class="settingsheader">SETTINGS</div>
-                <div class="settingsheader2">USER INFO</div>
+                
+                <div class="settingshead">
+                    <div class="settingsheader">SETTINGS</div>
+                    <div class="settingsheader2">USER INFO</div>
+                </div>
                 
                 <div class="hiddencontent">
                 <form class="formi" method="POST" action="updateUser.php">
@@ -347,7 +349,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                             echo nl2br ("Email: " . $_SESSION['email'] ."\n"."\n");
                             echo nl2br ("Country: " . $_SESSION['country']. "\n"."\n");
                             echo nl2br ("Birthdate: " . $_SESSION['birthdate']. "\n"."\n");
-                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n"."\n");
+                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n");
                             
                         } else {
                             echo ("Username: Guest");

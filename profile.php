@@ -90,7 +90,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                 <div class="upload">
                     <form action="upload/up.php" method="post" enctype="multipart/form-data">
                         <input type="file" name="fileToUpload" id="fileToUpload">
-						<input type="text" name="imgName" id="imageName" placeholder="Image name" required>
+						<input type="text" name="imgName" id="imageName" placeholder="Insert image name" required>
                         <input type="submit" value="Upload image" name="submit">
                     </form>
                 </div>
