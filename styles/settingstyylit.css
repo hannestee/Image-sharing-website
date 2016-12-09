@@ -66,8 +66,6 @@ p.info {
     letter-spacing: 1px;
     padding: 1.5em;
     margin: 0;
-    background-color: rgba(255,255,255, .4);
-    border: 1px solid rgb(185,65,0);   
 }
 
 p.loggedin {
@@ -78,7 +76,7 @@ p.loggedin {
     letter-spacing: 1px;
     padding: 1em;
     background-color: rgba(255,255,255, .4);
-    border: 1px solid rgb(185,65,0);  
+    border: 1px solid rgb(185, 70, 25);  
 }
 
 h1.settings{
@@ -92,7 +90,7 @@ h1.settings{
 /* ---------------------------------------------------------------------------*/
 /* ---------------------------------------------------------------------------*/
 
-.center{
+.center {
     margin-left: auto;
     margin-right: auto;
 }
@@ -103,6 +101,19 @@ h1.settings{
     margin: auto;
     position: absolute;
     overflow: hidden;
+}
+
+.settingsotsikko {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 8.5em;
+    margin-top: -0.5em;
+    background: -webkit-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    background: -o-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    background: -moz-linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
+    border-bottom: 2px solid rgb(185, 70, 25);
 }
 
 .settingstausta1 {
@@ -126,6 +137,11 @@ h1.settings{
     margin-top: 8em;
 }
 
+.settingshead {
+    width: 100%;
+    border-bottom: 4px double rgb(185, 70, 25);
+}
+
 .settingsheader {
     width: 49%;
     font-family: "Verdana", Geneva, sans-serif;
@@ -143,6 +159,7 @@ h1.settings{
     letter-spacing: 1px;
     display: inline-block;
     text-align: right;
+    float: right;
 }
 
 .hiddencontent {
@@ -160,46 +177,19 @@ h1.settings{
     width: 49%;
     display: inline-block;
     vertical-align: top;
+    float: right;
+    background: -webkit-linear-gradient(left, rgba(255,255,255, .4), rgba(255,255,255, .05));
+    background: -o-linear-gradient(left, rgba(255,255,255, .4), rgba(255,255,255, .05));
+    background: -moz-linear-gradient(left, rgba(255,255,255, .4), rgba(255,255,255, .05));
+    background: linear-gradient(left, rgba(255,255,255, .4), rgba(255,255,255, .05));
+/*    background-color: rgba(255,255,255, .4);*/
+    border-left: 2px solid rgb(185, 70 , 25);
 }
 
 .settingsimage {
     width: 100%;
     position: absolute;
     margin-top: 8.1em;
-}
-
-.settingsotsikko {
-    z-index: 999;
-    position: absolute;
-    width: 100%;
-    height: 8.5em;
-    margin-top: -0.5em;
-    background: linear-gradient(to bottom, #E0E0E0 0%, white 80%);
-    border-bottom: 2px solid rgb(185,65,0);
-}
-
-.logo {
-    z-index: 999;
-    position: absolute;
-    float: left;
-    top: 50%;
-    margin-top: 8px;
-    margin-left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.profiilikuva {
-    position: relative;
-    float: right;
-    width: 6.5em;
-    border: 1px solid grey;
-    margin-top: 19px;
-    margin-right: 11px;
-}
-
-.profiilikuva:hover {
-    opacity: 0.9;
-    border: 1px solid black;
 }
 
 /* ---------------------------------------------------------------------------*/
