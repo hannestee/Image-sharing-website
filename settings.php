@@ -62,7 +62,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                 
                 <div class="hiddencontent">
                     
-                <form class="formi" method="POST" action="updateUser.php">
+                <form class="formi" method="GET" action="updateUser.php">
                     <p class="settings">Birthdate:</p>
                     <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
 
