@@ -142,7 +142,7 @@ if($_SESSION['loggedIn'] == "yes")  {
             <div class="responsive">
             
                 <div class="imageframe">
-                	<a class="imagelink" href="info.php">
+                	<a class="imagelink" href= "info.php?image=<?php echo($media->id);?>">
                     <img class="image" src="<?php echo("upload/uploads/$media->url");?>">
                     </a>
                 </div>	
