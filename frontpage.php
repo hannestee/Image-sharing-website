@@ -33,7 +33,15 @@ include("iheader.php");
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <a href="profile.php" target="_self"><img class="profiilikuva" src="graphics/profiilikuva.jpg"></a>
+            <a href="profile.php" target="_self" class="profiilikuva">
+                <?php
+                    if(empty($_SESSION['profilepicurl'])){
+                        echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
+                    } else {
+                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                    }
+                ?>
+            </a>
             
             <div class="user">
                 <p class="loggedin">
