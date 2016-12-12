@@ -57,6 +57,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                 
                 <div class="settingshead">
                     <div class="settingsheader">SETTINGS</div>
+                    <div class="header">(please fill all fields)</div>
                     <div class="settingsheader2">USER INFO</div>
                 </div>
                 
@@ -64,13 +65,13 @@ if($_SESSION['loggedIn'] == "yes")  {
                     
                 <form class="formi" method="GET" action="updateUser.php">
                     <p class="settings">Birthdate:</p>
-                    <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                    <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
 
                     <p class="settings">Phone number:</p>
-                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}">
+                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="^\+358[0-9].{4,15}" required>
 
                     <p class="settings">Country:</p>
-                    <select class="syotemitat" id="country" name="country">
+                    <select class="syotemitat" id="country" name="country" required>
                                 <option value=" " selected="selected">Select your country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -323,12 +324,8 @@ if($_SESSION['loggedIn'] == "yes")  {
                                 <option value="Zimbabwe">Zimbabwe</option>                                
                             </select>
 
-                    <p class="settings">Old password:</p>
-                    <input class="syotemitat" type="password" name="password" placeholder="Enter old password" required>
-                    <br>
-
-                    <p class="settings">New password:</p>
-                    <input class="syotemitat" type="password" name="newPassword" placeholder="Enter new password">
+                    <p class="settings">Profile picture:</p>
+                    <input class="syotemitat" type="text" name="profilepicture" placeholder="Specify by url">
                     <br>
 
                     <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
