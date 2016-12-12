@@ -90,7 +90,7 @@ include("iheader.php");
                 <div class="date"><?php echo($media->uploadtime); ?></div>
                 
                 <div class="fimageframe">
-                   <a href="info.php")>
+                   <a href= "info.php?image=<?php echo($media->id);?>">
                     <img class="fimage" src="<?php echo("upload/uploads/$media->url");?>"></a>
                 </div>
                 
