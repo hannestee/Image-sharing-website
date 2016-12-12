@@ -39,7 +39,16 @@ if($_SESSION['loggedIn'] == "yes")  {
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <a href="profile.php" target="_self"><img class="profiilikuva" src="graphics/profiilikuva.jpg"></a>
+            
+            <a href="profile.php" target="_self" class="profiilikuva">
+                <?php
+                    if(empty($_SESSION['profilepicurl'])){
+                        echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
+                    } else {
+                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                    }
+                    ?>
+            </a>
             
             <div class="user">
             <p class="loggedin">
@@ -58,7 +67,15 @@ if($_SESSION['loggedIn'] == "yes")  {
         <div class="backgroundhidden"></div>
         <div class="profilebackground">
             <div class="profileinfo">
-                <img class="profilepic" src="graphics/profiilikuva.jpg">
+                <div class="profilepic">
+                    <?php
+                    if(empty($_SESSION['profilepicurl'])){
+                            echo '<img src="graphics/profiilikuva.jpg" width="320px" height="320px">';
+                        } else {
+                            echo '<img src='.$_SESSION['profilepicurl'].' width="320px" height="320px">';
+                            }
+                    ?>
+                </div>
                 
                 <div class="infosisalto">
                     <p class="info">
