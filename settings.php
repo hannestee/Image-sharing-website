@@ -2,7 +2,6 @@
 <html>
 <?php
 include("iheader.php");
-
 if($_SESSION['loggedIn'] == "yes")  {
     }else {
         redirect("index.php");
@@ -33,7 +32,15 @@ if($_SESSION['loggedIn'] == "yes")  {
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <a href="profile.php" target="_self"><img class="profiilikuva" src="graphics/profiilikuva.jpg"></a>
+            <a href="profile.php" target="_self" class="profiilikuva">
+                <?php
+                    if(empty($_SESSION['profilepicurl'])){
+                        echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
+                    } else {
+                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                    }
+                ?>
+            </a>
             
             <div class="user">
             <p class="loggedin">
@@ -57,7 +64,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                 
                 <div class="settingshead">
                     <div class="settingsheader">SETTINGS</div>
-                    <div class="header">(please fill all fields)</div>
+                    <div class="header">(please fill in all fields)</div>
                     <div class="settingsheader2">USER INFO</div>
                 </div>
                 
@@ -68,7 +75,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                     <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
 
                     <p class="settings">Phone number:</p>
-                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="^\+358[0-9].{4,15}" required>
+                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}" required>
 
                     <p class="settings">Country:</p>
                     <select class="syotemitat" id="country" name="country" required>
@@ -325,7 +332,7 @@ if($_SESSION['loggedIn'] == "yes")  {
                             </select>
 
                     <p class="settings">Profile picture:</p>
-                    <input class="syotemitat" type="text" name="profilepicture" placeholder="Specify by url">
+                    <input class="syotemitat" type="text" name="profilepicurl" placeholder="Specify by url">
                     <br>
 
                     <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
