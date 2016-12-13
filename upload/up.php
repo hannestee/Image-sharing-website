@@ -1,10 +1,7 @@
-
 <?php
-unset($_SESSION['viesti']);
 include_once("../iheader.php");
 
 if ($_SESSION['loggedIn'] == "yes"){
-
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -51,19 +48,12 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 		try {
-
-		echo "testi58";
-        $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime, commentcount, likes) VALUES (:1url, :1name, NOW(), 0, 0)"); 
-        
-        
-        echo "testi61";
+        $stm = $DBH->prepare("INSERT INTO ga_imgdata (url, name, uploadtime, commentcount, likes) VALUES (:1url, :1name, NOW(), 0, 0)");
 		$stm->execute(array(
 		"1url" => ($_FILES['fileToUpload']['name']),
 		"1name" => ($imgName)
 		));
-		
 		$kuvaid = $DBH->lastInsertId();
-		echo "testi66";
 		$datat['id'] = $_SESSION['userid'];
 		$datat['imgid'] = $kuvaid;
 		print_r($datat);
@@ -75,21 +65,31 @@ if ($uploadOk == 0) {
 		//"id" => ($STH)
 		//));	
 		} else {
-                $_SESSION['viesti'] = "en voi hyvin";
-                redirect("../frontpage.php");
+                echo '<script language="javascript">';
+				echo 'alert("Database error")';
+				echo '</script>';
+                redirect("../profile.php");
 		}
 		}catch(PDOException $e){
-            $_SESSION['viesti'] = "Tietokantaongelma"; //$e.getMessage()")
+            	echo '<script type="text/javascript">'; 
+				echo 'alert("Database error");'; 
+				echo 'window.location.href = "../profile.php";';
+				echo '</script>';
 		}
-		redirect("../frontpage.php");
+		redirect("../profile.php");
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        	echo '<script type="text/javascript">'; 
+			echo 'alert("There was an error uploading your file");'; 
+			echo 'window.location.href = "../profile.php";';
+			echo '</script>';
 		
     }
 }
 } else {
-	$_SESSION['viesti'] = "You aren't logged in";
-	redirect("../frontpage.php");
+	echo '<script type="text/javascript">'; 
+	echo 'alert("You aren\'t logged in");'; 
+	echo 'window.location.href = "../index.php";';
+	echo '</script>';
 	
 }
 
