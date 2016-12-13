@@ -14,22 +14,29 @@ if(isset($_POST["submit"])){
                 $_SESSION['email'] = $datat['email'];
                 $_SESSION['country'] = $datat['country'];
 				$_SESSION['title'] = 'Newbie';
-                $_SESSION['viesti'] = "Welcome, " . $_SESSION['username'] . ". You can log in now";
-                redirect("index.php");
+                echo '<script type="text/javascript">'; 
+				echo 'alert("Welcome. You can log in now");'; 
+				echo 'window.location.href = "index.php";';
+				echo '</script>';
             } else {
-                $_SESSION['viesti'] = "en voi hyvin";
-                redirect("index.php");
+                	echo '<script type="text/javascript">'; 
+					echo 'alert("Something went wrong");'; 
+					echo 'window.location.href = "index.php";';
+					echo '</script>';
             }
         }
         catch(PDOException $e){
-            $_SESSION['viesti'] = "DB error"; //$e.getMessage()")
-            redirect("index.php");
+            	echo '<script type="text/javascript">'; 
+				echo 'alert("Database error");'; 
+				echo 'window.location.href = "index.php";';
+				echo '</script>';
         }
         } else {
-            echo("Bad email");
-            $_SESSION['viesti'] = "Wrong email";
-            redirect("index.php");
-    }
+		echo '<script type="text/javascript">'; 
+		echo 'alert("Bad email");'; 
+		echo 'window.location.href = "index.php";';
+		echo '</script>';
+	}
 }
 
 ?>

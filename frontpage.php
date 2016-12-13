@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <?php
-unset($_SESSION['viesti']);
 include("iheader.php");
 ?>
 <head>
@@ -65,20 +64,13 @@ include("iheader.php");
             
             <?php
                 if($mediat = getNewestMedia($DBH,5)){
-                    foreach($mediat as $media){
-                    
+                    foreach($mediat as $media){     
                     $datat = array('uploadaaja' => $media->id);                 
-                    
                     try {
 					$query1 = "SELECT ga_users.username FROM ga_users, ga_img, ga_imgdata WHERE ga_img.imgID=:uploadaaja AND ga_users.id = ga_img.uploaderID LIMIT 1";
-					print_r($query2);
 		            $STH = $DBH->prepare($query1);
-		            print_r($STH2);
 		            $STH->execute($datat);
-					
 		          	$uploader = $STH->fetch();         	
-                    //HUOM -> notaatio, koska $media on OLIO sisältäen kuvan tiedot!!
-                    //mediat on puolestaan taulukko näistä olioista
                     }catch(PDOException $e) {
         			echo "Login DB error.";
         			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
@@ -101,7 +93,7 @@ include("iheader.php");
                 <?php
                     }
                  }else{
-                       echo("Haku meni plörinäks");
+                       echo("No pictures found");
                  }
                 ?>
                 

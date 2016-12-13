@@ -4,7 +4,10 @@
 include("iheader.php");
 if($_SESSION['loggedIn'] == "yes")  {
     }else {
-        redirect("index.php");
+        echo '<script type="text/javascript">'; 
+		echo 'alert("You aren\'t logged in");'; 
+		echo 'window.location.href = "index.php";';
+		echo '</script>';
     }
 ?>
         
