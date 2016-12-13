@@ -6,11 +6,18 @@ include("iheader.php");
     
 if($_SESSION['loggedIn'] == "yes")  {
     }else {
-        redirect("index.php");
+echo '<script type="text/javascript">'; 
+echo 'alert("You aren\'t logged in");'; 
+echo 'window.location.href = "index.php";';
+echo '</script>';
     }    
 ?>
     
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     
@@ -154,17 +161,13 @@ if($_SESSION['loggedIn'] == "yes")  {
             <?php
                 }
                  }else{
-                       echo("Haku meni plörinäks");
+                       echo("No pictures found");
                 } 
             ?>
         </div>
     
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
 </body>
 </html>    
 

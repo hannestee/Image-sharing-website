@@ -5,12 +5,16 @@ unset($_SESSION['viesti']);
 include("iheader.php");
 ?>
 <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
-    <title>Nettisivu</title>
+    <title>Image - Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
     <link rel="stylesheet" type="text/css" href="styles/info.css">
@@ -52,34 +56,27 @@ include("iheader.php");
         <div class="infobackground1">
             
             <div class="infocontent">
-                
-                <img class="deleteicon" src="graphics/delete.png">
-                <div class="infoimagename">Image name</div>
-                <div class="infodate">Date</div>
-                
-                <div class="infoimageframe">
-					<!--<button type="button" onClick="localStorage.id=<?php echo(5);?>">Click</button>
-					<button onclick="alert(sessionStorage.getItem('id'))">Check Session Value</button> -->
-					<script>
-					//var myPicture = sessionStorage.getItem('id'); 
-					
-									
-					</script>
+				<?php
+                $mediat = getNewestMedia($DBH,5);
+				
+				
+				?>
+				
 					<?php
 					//print_r($picture1);
 					//$picture2 = intval($picture1);
 					//print_r($picture2);
 					
-					
-					$datat['picture'] = $_GET['image'];
+					$pictureid = $_GET['image'];
+					$datat['picture'] = $pictureid;
 					//print_r($datat);
 					try {
-					$query1 = "SELECT ga_imgdata.url FROM ga_imgdata WHERE ga_imgdata.id = :picture";
+					$query1 = "SELECT url, name, uploadtime, likes, ga_users.username FROM ga_users, ga_imgdata, ga_img WHERE ga_imgdata.id = :picture AND ga_img.imgID = ga_imgdata.id AND uploaderID = ga_users.id";
 					//print_r($query2);
 		            $STH = $DBH->prepare($query1);
 		            // print_r($STH);
 		            $STH->execute($datat);
-		          	$pictureurl = $STH->fetch();
+		          	$picturedata = $STH->fetch();
 		          	//print_r($pictureurl[0]);
 					// print_r("asd");
                     }catch(PDOException $e) {
@@ -88,19 +85,76 @@ include("iheader.php");
    					}
 					
            			?>
-			
-					
-                    <img class="infoimage" src="<?php echo("upload/uploads/$pictureurl[0]");?>">
+				<?php
+				if ($picturedata[4] == $_SESSION['username2']){
+					?>
+					<a href= "delete.php?del=<?php echo("upload/uploads/$picturedata[0]");?>&image=<?php echo $_GET['image'];?>"
+					onclick="if (!confirm('Are you sure?')) return false;">
+					<img class="deleteicon" src="graphics/delete.png"></a>
+					<?php
+				}
+				?>
+				
+                <div class="infoimagename"><?php echo("$picturedata[1]");?></div>
+                <div class="infodate"><?php echo("$picturedata[2]");?></div>
+                
+                <div class="infoimageframe">
+                    <img class="infoimage" src="<?php echo("upload/uploads/$picturedata[0]");?>">
                 </div>
                 
-                <div class="infousername">Username</div>
+                <div class="infousername"><?php echo("$picturedata[4]");?></div>
+				<?php
+				//if ($_SESSION['ratedimage'] == $_GET['image']){
+				?>
                 <div class="inforatings">
                     <div class="ratingsline">
-                        <img class="ratingsminus" src="graphics/minus.png">
-                        <div class="ratingsnumber">Rating: </div>
-                        <img class="ratingsplus" src="graphics/plus.png">
+						<?php
+						if ($_SESSION['ratedimage'] != $_GET['image']){
+						?>
+						<a href="#" id="dislike" class="dislike" onclick="this.style.display = 'none'">
+                        <img class="ratingsminus" src="graphics/minus.png"></a>
+						<?php
+						}
+						?>
+						
+                        <div class="ratingsnumber">Rating: <?php echo("$picturedata[3]");?></div>
+						
+						<?php
+						if ($_SESSION['ratedimage'] != $_GET['image']){
+						?>
+						<a href="#" id="like" class="like">
+						<img class="ratingsplus" src="graphics/plus.png"></a>
+						<?php
+						}
+						?>
+						
+					<script>
+					$(function(){
+					$("a.dislike").click(function()
+					{
+					$.get("dislike.php?dislike=<?php echo $_GET['image'];?>");
+					$("#dislike").css("visibility", "hidden");
+					$("#like").css("visibility", "hidden");
+					alert("Downvoted");
+					return false; // prevent default browser refresh on "#" link
+					});
+					});
+					$(function(){
+					$("a.like").click(function()
+					{
+					$.get("like.php?like=<?php echo $_GET['image'];?>");
+					$("#dislike").css("visibility", "hidden");
+					$("#like").css("visibility", "hidden");
+					alert("Upvoted");
+					return false; // prevent default browser refresh on "#" link
+					});
+					});
+					</script>
                     </div>
                 </div>
+				<?php
+				//}
+				?>
 				
                 <div class="infocomments">
                     <div class="commentsheader">COMMENTS</div>
@@ -114,11 +168,6 @@ include("iheader.php");
             </div>
         </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-
     <!-- <script src="js/main.js"></script> -->
 </body>
 <script type="text/javascript">
