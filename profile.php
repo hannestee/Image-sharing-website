@@ -18,11 +18,8 @@ echo '</script>';
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
     </script>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-
     <title>Profile - Imagnary</title>
     <link rel="stylesheet" type="text/css" href="styles/tyylit.css">
     <link rel="stylesheet" type="text/css" href="styles/dropdown.css">
@@ -31,9 +28,7 @@ echo '</script>';
 
     
 <body>
-    <div class="otsikkowide"></div>
     <div class="tausta">
-        
         <div class="otsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
