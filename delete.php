@@ -13,10 +13,7 @@ if ($_SESSION['loggedIn'] == "yes"){
 $file = $_GET['del'];
 if (!unlink($file))
   {
-	echo '<script type="text/javascript">'; 
-	echo 'alert("Failed to delete the image");'; 
-	echo 'window.location.href = "profile.php";';
-	echo '</script>';
+	redirect("profile.php");
   }
 else
   {
@@ -24,20 +21,20 @@ else
                     
     try {
 	$query1 = "DELETE FROM ga_imgdata WHERE ga_imgdata.id=:deleteimg";
+	$query2 = "DELETE FROM ga_img WHERE ga_img.imgID=:deleteimg";
+	$query3 = "DELETE FROM ga_comments WHERE ga_comments.imgID=:deleteimg";
 	$STH = $DBH->prepare($query1);
-	$STH->execute($datat);	       	
+	$STH2 = $DBH->prepare($query2);
+	$STH3 = $DBH->prepare($query3);
+	$STH->execute($datat);
+	$STH2->execute($datat);	  
+	$STH3->execute($datat);	 	
     }catch(PDOException $e) {
-    echo "Login DB error.";
-    file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
+    echo "DB error.";
+    file_put_contents('log/DBErrors.txt', 'Del image: '.$e->getMessage()."\n", FILE_APPEND);
    	}
-	
-	
-	
-	
-  	echo '<script type="text/javascript">'; 
-	echo 'alert("Image has been deleted");'; 
-	echo 'window.location.href = "profile.php";';
-	echo '</script>';
+
+  	redirect("profile.php");
 }
 ?> 
 	
