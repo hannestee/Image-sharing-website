@@ -13,7 +13,7 @@
 //Tietokanta
 $user = 'hannest';        //Käytäjänimi 
 $pass = 'harambe';        //Salasana
-$host = 'mysql.metropolia.fi';  //Tietokantapalvelin
+$host = 'localhost';  //Tietokantapalvelin
 $dbname = 'hannest';        //Tietokanta
 // Muodostetaan yhteys tietokantaan
 try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapaasti valittavissa)
@@ -32,7 +32,7 @@ function getNewestMedia($DBH, $count){
    try {
       //Haetaan $count muuttujan arvon verran uusimpia kuvia
       $mediaTuotteet = array(); //Taulukko haettaville kuva-olioille (mediatuote)
-		$query1 = "SELECT * FROM ga_imgdata ORDER BY ga_imgdata.id DESC LIMIT 5";
+		$query1 = "SELECT * FROM ga_imgdata ORDER BY ga_imgdata.id DESC LIMIT 15";
 		$STH = $DBH->query($query1);
       $STH->setFetchMode(PDO::FETCH_OBJ);  //yksi rivi objektina
       while($mediaTuote = $STH->fetch()){
@@ -43,6 +43,22 @@ function getNewestMedia($DBH, $count){
       file_put_contents('log/DBErrors.txt', 'getNewMedia(): '.$e->getMessage()."\n", FILE_APPEND);
       return false;
 	}
+}
+
+function getSearchResult($DBH){
+	try {
+      $searchResult = array(); 
+		$query1 = "SELECT * FROM ga_imgdata LIMIT 15";
+		$STH = $DBH->query($query1);
+      $STH->setFetchMode(PDO::FETCH_OBJ);
+      while($search = $STH->fetch()){
+          $searchResult[] = $search;
+      }
+      return $searchResult;
+	} catch(PDOException $e) {
+      file_put_contents('log/DBErrors.txt', 'getNewMedia(): '.$e->getMessage()."\n", FILE_APPEND);
+      return false;
+    }
 }
 
 
