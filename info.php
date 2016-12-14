@@ -3,6 +3,7 @@
 <?php
 unset($_SESSION['viesti']);
 include("iheader.php");
+$ratedimage = unserialize($_SESSION['ratedimage']);
 ?>
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -109,7 +110,7 @@ include("iheader.php");
                 <div class="inforatings">
                     <div class="ratingsline">
 						<?php
-						if ($_SESSION['ratedimage'] != $_GET['image']){
+						if (!in_array($_GET['image'], $ratedimage) && $_SESSION['loggedIn'] == "yes"){
 						?>
 						<a href="#" id="dislike" class="dislike" onclick="this.style.display = 'none'">
                         <img class="ratingsminus" src="graphics/minus.png"></a>
@@ -120,7 +121,7 @@ include("iheader.php");
                         <div class="ratingsnumber">Rating: <?php echo("$picturedata[3]");?></div>
 						
 						<?php
-						if ($_SESSION['ratedimage'] != $_GET['image']){
+						if (!in_array($_GET['image'], $ratedimage) && $_SESSION['loggedIn'] == "yes" ){
 						?>
 						<a href="#" id="like" class="like">
 						<img class="ratingsplus" src="graphics/plus.png"></a>
@@ -154,21 +155,45 @@ include("iheader.php");
                 </div>
 				<?php
 				//}
+				$_SESSION['imageid'] = $_GET['image'];
 				?>
 				
                 <div class="infocomments">
                     <div class="commentsheader">COMMENTS</div>
                     
-                    <form method="post">
+                    <form method="post" action="comment.php">
                         <input type="text" name="comment" id="cmnt" placeholder="Write a comment" required>
                         <input type="submit" value="Post" name="submit">
                     </form>
                     
+                    <?php
+                    try {
+      					
+      				$commentdata = array();
+					$query2 = "SELECT commenttext, commentdate, commentor FROM ga_comments ORDER BY commentdate ASC LIMIT 30";
+					$STH2 = $DBH->query($query2);
+      				$STH2->setFetchMode(PDO::FETCH_OBJ);
+      				while($comment = $STH2->fetch()){
+         			 $commentdata[] = $comment; 
+      				}
+      				$comments = $commentdata;
+					} catch(PDOException $e) {
+     					 file_put_contents('log/DBErrors.txt', 'getNewMedia(): '				.$e->getMessage()."\n", FILE_APPEND);
+     				 return false;
+					}
+                    foreach($comments as $comment){
+                    
+                    
+                    ?>
                     <div class="commentscontainer">
-                        <div class="comment">asdasddass</div>
-                        <div class="commentposter">asddas</div>
-                        <div class="commentdate">sadasd</div>
-                    </div>
+                        <div class="comment"><?php echo($comment->commenttext); ?></div>
+                        <div class="commentposter"><?php echo($comment->commentor); ?></div>
+                        <div class="commentdate"><?php echo($comment->commentdate); ?></div>
+                        
+					</div>
+					<?php
+					}
+					?>
                 </div>
                 
             </div>
