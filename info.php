@@ -163,6 +163,12 @@ include("iheader.php");
                         <input type="text" name="comment" id="cmnt" placeholder="Write a comment" required>
                         <input type="submit" value="Post" name="submit">
                     </form>
+                    
+                    <div class="commentscontainer">
+                        <div class="comment">asdasddass</div>
+                        <div class="commentposter">asddas</div>
+                        <div class="commentdate">sadasd</div>
+                    </div>
                 </div>
                 
             </div>
