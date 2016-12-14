@@ -188,6 +188,7 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
                     <div class="commentscontainer">
                         <div class="comment"><?php echo($comment->commenttext); ?></div>
                         <div class="commentposter"><?php echo($comment->commentor); ?></div>
+			<img class="deletecomment" src="graphics/deletecomment.png">
                         <div class="commentdate"><?php echo($comment->commentdate); ?></div>
                         
 					</div>
