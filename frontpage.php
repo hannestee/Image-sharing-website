@@ -57,7 +57,7 @@ include("iheader.php");
 		
         <div class="tausta1">
             <div class="searchbar">
-                <form>
+                <form action="searchresults.php">
                     <input type="text" name="search" placeholder="Search...">
                 </form>
             </div>
