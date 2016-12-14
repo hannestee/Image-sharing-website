@@ -61,12 +61,33 @@ include("iheader.php");
                     <input type="text" name="search" placeholder="Search...">
                 </form>
             </div>
+            <?php
+            if (isset($_GET['search'])){
+            
+            	if($_GET['search']){
+            	$searchimg = $_GET['search'];
+            	
+            	$_SESSION['searchimg'] = $searchimg;
+            	//print_r($searchimg);
+            	$kysely2 = $DBH->prepare("SELECT * FROM ga_imgdata WHERE ga_imgdata.name LIKE '%$searchimg%'");
+    			$kysely2->execute();
+    			$searchresult = $kysely2->fetch(); 
+    			//print_r($searchresult);
+    			//print_r($searchresult[2]);
+            	}
+            
+            ?>
+            
             
             <?php
-                if($mediat = getNewestMedia($DBH,5)){
-                    foreach($mediat as $media){     
+            
+                if($mediat = getSearchResult($DBH)){
+                    foreach($mediat as $media){
+                    print_r($media->name);
+                         
                     $datat = array('uploadaaja' => $media->id);                 
                     try {
+                    
 					$query1 = "SELECT ga_users.username FROM ga_users, ga_img, ga_imgdata WHERE ga_img.imgID=:uploadaaja AND ga_users.id = ga_img.uploaderID LIMIT 1";
 		            $STH = $DBH->prepare($query1);
 		            $STH->execute($datat);
@@ -75,28 +96,38 @@ include("iheader.php");
         			echo "Login DB error.";
         			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
    					}
-            ?>
+   				
+   				
+   				//print_r($media->name);
+   					
+   					for ($x = 0; $x <= 10; $x++) {
+   						if ($media->name == $searchresult[2]){
+           			 ?>
             
-            <div class="content">
-                <div class="imagename"><?php echo($media->name); ?></div>
-                <div class="date"><?php echo($media->uploadtime); ?></div>
+            			<div class="content">
+                		<div class="imagename"><?php echo($media->name); ?></div>
+                		<div class="date"><?php echo($media->uploadtime); ?></div>
                 
-                <div class="fimageframe">
-                   <a href= "info.php?image=<?php echo($media->id);?>">
-                    <img class="fimage" src="<?php echo("upload/uploads/$media->url");?>"></a>
-                </div>
+               			<div class="fimageframe">
+                   		<a href= "info.php?image=<?php echo($media->id);?>">
+                    	<img class="fimage" src="<?php 				echo("upload/uploads/$media->url");?>"></a>
+                		</div>
                 
-                <div class="username"><?php echo($uploader[0]);?></div>
-                <div class="comments">Comments: <?php echo($media->commentcount);?></div>
-                <div class="ratings">Rating: <?php echo($media->likes);?></div>
+                		<div class="username"><?php echo($uploader[0]);?></div>
+                		<div class="comments">Comments: <?php 		echo($media->commentcount);?></div>
+                		<div class="ratings">Rating: <?php echo($media->likes);?></div>
 				
-                <?php
-                    }
+                	<?php
+                	}
+                }
+                }
                  }else{
                        echo("No pictures found");
                  }
                 ?>
-                
+            <?php
+            }
+            ?>
             </div>
         </div>
     </div>
