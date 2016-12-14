@@ -38,8 +38,18 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
-            <a href="profile.php" target="_self"><img class="profiilikuva" src="graphics/profiilikuva.jpg"></a>
+            <a href="profile.php" target="_self" class="profiilikuva">
+				<?php
+                    if(empty($_SESSION['profilepicurl'])){
+                        echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
+                    } else {
+                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                    }
+                ?>
+			</a>
             
+			
+			
             <div class="user">
                 <p class="loggedin">
                 <?php
@@ -87,7 +97,7 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
 					
            			?>
 				<?php
-				if ($picturedata[4] == $_SESSION['username2']){
+				if ($picturedata[4] == $_SESSION['username2'] || $_SESSION['title'] == 'Admin'){
 					?>
 					<a href= "delete.php?del=<?php echo("upload/uploads/$picturedata[0]");?>&image=<?php echo $_GET['image'];?>"
 					onclick="if (!confirm('Are you sure?')) return false;">
@@ -112,7 +122,7 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
 						<?php
 						if (!in_array($_GET['image'], $ratedimage) && $_SESSION['loggedIn'] == "yes"){
 						?>
-						<a href="#" id="dislike" class="dislike" onclick="this.style.display = 'none'">
+						<a href="dislike.php?dislike=<?php echo $_GET['image'];?>" id="dislike" class="dislike" onclick="this.style.display = 'none'">
                         <img class="ratingsminus" src="graphics/minus.png"></a>
 						<?php
 						}
@@ -123,34 +133,33 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
 						<?php
 						if (!in_array($_GET['image'], $ratedimage) && $_SESSION['loggedIn'] == "yes" ){
 						?>
-						<a href="#" id="like" class="like">
+						<a href="like.php?like=<?php echo $_GET['image'];?>" id="like" class="like">
 						<img class="ratingsplus" src="graphics/plus.png"></a>
 						<?php
 						}
 						?>
 						
-					<script>
+					<!--<script>
 					$(function(){
 					$("a.dislike").click(function()
 					{
-					$.get("dislike.php?dislike=<?php echo $_GET['image'];?>");
+					$.get("dislike.php?dislike=<?php //echo $_GET['image'];?>");
 					$("#dislike").css("visibility", "hidden");
 					$("#like").css("visibility", "hidden");
-					alert("Downvoted");
-					return false; // prevent default browser refresh on "#" link
+					alert("Downvoted");// prevent default browser refresh on "#" link
 					});
 					});
 					$(function(){
 					$("a.like").click(function()
 					{
-					$.get("like.php?like=<?php echo $_GET['image'];?>");
+					$.get("like.php?like=<?php //echo $_GET['image'];?>");
 					$("#dislike").css("visibility", "hidden");
 					$("#like").css("visibility", "hidden");
-					alert("Upvoted");
-					return false; // prevent default browser refresh on "#" link
+					alert("Upvoted");// prevent default browser refresh on "#" link
 					});
 					});
-					</script>
+					</script>-->
+					
                     </div>
                 </div>
 				<?php
@@ -162,7 +171,7 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
                     <div class="commentsheader">COMMENTS</div>
                     
                     <form method="post" action="comment.php">
-                        <input type="text" name="comment" id="cmnt" placeholder="Write a comment" required>
+                        <input type="text" name="comment" id="cmnt" maxlength="500" placeholder="Write a comment" required>
                         <input type="submit" value="Post" name="submit">
                     </form>
                     
@@ -170,7 +179,7 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
                     try {
       					
       				$commentdata = array();
-					$query2 = "SELECT commenttext, commentdate, commentor FROM ga_comments ORDER BY commentdate ASC LIMIT 30";
+					$query2 = "SELECT * FROM ga_comments ORDER BY commentdate ASC";
 					$STH2 = $DBH->query($query2);
       				$STH2->setFetchMode(PDO::FETCH_OBJ);
       				while($comment = $STH2->fetch()){
@@ -181,18 +190,30 @@ $ratedimage = unserialize($_SESSION['ratedimage']);
      					 file_put_contents('log/DBErrors.txt', 'getNewMedia(): '				.$e->getMessage()."\n", FILE_APPEND);
      				 return false;
 					}
+					
+					
                     foreach($comments as $comment){
-                    
+                    if ($pictureid == $comment->imgID){
                     
                     ?>
                     <div class="commentscontainer">
                         <div class="comment"><?php echo($comment->commenttext); ?></div>
                         <div class="commentposter"><?php echo($comment->commentor); ?></div>
-			<img class="deletecomment" src="graphics/deletecomment.png">
+						<?php
+						if ($comment->commentor == $_SESSION['username2'] || $_SESSION['title'] == 'Admin'){
+						
+						?>
+						<a href= "deletecomment.php?del=<?php echo($comment->commentID);?>&image=<?php echo $_GET['image'];?>"
+						onclick="if (!confirm('Are you sure?')) return false;">	
+						<img class="deletecomment" src="graphics/deletecomment.png"></a>
+						<?php
+						}
+						?>
                         <div class="commentdate"><?php echo($comment->commentdate); ?></div>
                         
 					</div>
 					<?php
+					}
 					}
 					?>
                 </div>
