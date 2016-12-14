@@ -106,11 +106,11 @@ p.commentsheader {
 .infocomments {
     width: 90%;
     background-color: whitesmoke;
-    height: 20em;
     margin: auto;
     margin-top: 5em;
     padding-left: 2em;
     padding-right: 2em;
+    padding-bottom: 1.5em;
     border-left: 1px solid rgb(185,70,25);
     border-right: 1px solid rgb(185,70,25);
 }
@@ -127,17 +127,16 @@ p.commentsheader {
 }
 
 input[type=text] {
-    width: 79.7%;
+    width: 79%;
     border: 2px solid #555555;
     padding: 1em;
     box-sizing: border-box;
     font-size: 1.25em;
     font-family: "Verdana", Geneva, sans-serif;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
 }
 
 input[type=submit] {
+    float: right;
     width: 20%;
     padding: 1em;
     color: white;
@@ -165,13 +164,39 @@ input[type=submit]:active {
     }
 }
 
+.commentscontainer {
+    margin-top: 2em;
+    background-color: #555555;
+}
 
+.comment {
+    padding: 1em;
+    border-bottom: 2px solid rgb(185,70,25);
+    color: white;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 1em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
 
+.commentposter {
+    width: 40%;
+    float: left;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 0.8em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
 
-
-
-
-
+.commentdate {
+    width: 40%;
+    float: right;
+    text-align: right;
+    font-family: "Verdana", Geneva, sans-serif;
+    font-size: 0.8em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+}
 
 
 
