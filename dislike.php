@@ -16,7 +16,9 @@ if ($_SESSION['loggedIn'] == "yes"){
 	echo '</script>';
    	}
 	//redirect("info.php");
-	$_SESSION['ratedimage'] = $imageid;
+	$ratedimage = unserialize($_SESSION['ratedimage']);
+	$ratedimage[] = $imageid;
+	$_SESSION['ratedimage'] = serialize($ratedimage);
 	}	
 	else {
     echo '<script type="text/javascript">'; 
