@@ -26,7 +26,7 @@ if($_SESSION['loggedIn'] == "yes")  {
         <div class="settingsotsikko">
             <div class="dropdown">
                 <span><img class="dropdownpic" src="graphics/menu2.png"></span>
-                     <div class="dropdown-content">
+                    <div class="dropdown-content">
                         <a href="frontpage.php">Home</a>
                         <a href="profile.php">Profile</a>
                         <a href="settings.php">Settings</a>
@@ -34,7 +34,10 @@ if($_SESSION['loggedIn'] == "yes")  {
                     </div>
             </div>
             
-            <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
+            <div class="logo">
+                <a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a>
+            </div>
+            
             <a href="profile.php" target="_self" class="profiilikuva">
                 <?php
                     if(empty($_SESSION['profilepicurl'])){
@@ -46,17 +49,16 @@ if($_SESSION['loggedIn'] == "yes")  {
             </a>
             
             <div class="user">
-            <p class="loggedin">
-            <?php
-                if($_SESSION['loggedIn'] == "yes"){
-                    echo ("Logged in: " . $_SESSION['username2']). "  [" . $_SESSION['title']. "]" ;
-                } else {
-                    echo ("Guest");
-                }
-            ?>
-            </p>
+                <p class="loggedin">
+                <?php
+                    if($_SESSION['loggedIn'] == "yes"){
+                        echo ("Logged in: " . $_SESSION['username2']). "  [" . $_SESSION['title']. "]" ;
+                    } else {
+                        echo ("Guest");
+                    }
+                ?>
+                </p>
             </div>
-            
         </div>
 
         <div class="settingstausta1">
@@ -64,7 +66,6 @@ if($_SESSION['loggedIn'] == "yes")  {
             <img class="settingsimage" src="graphics/settings2.jpg">   
             
             <div class="settingssisalto">
-                
                 <div class="settingshead">
                     <div class="settingsheader">SETTINGS</div>
                     <div class="header">(please fill in all fields)</div>
@@ -72,16 +73,15 @@ if($_SESSION['loggedIn'] == "yes")  {
                 </div>
                 
                 <div class="hiddencontent">
-                    
-                <form class="formi" method="GET" action="updateUser.php">
-                    <p class="settings">Birthdate:</p>
-                    <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
+                    <form class="formi" method="GET" action="updateUser.php">
+                        <p class="settings">Birthdate:</p>
+                        <input class="syotemitat" type="text" name="birthdate" placeholder="Enter your birthdate (YYYY-MM-DD)" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
 
-                    <p class="settings">Phone number:</p>
-                    <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}" required>
+                        <p class="settings">Phone number:</p>
+                        <input class="syotemitat" type="tel" name="phonenumber" placeholder="Enter a phone number" pattern="[0-9].{4,15}" required>
 
-                    <p class="settings">Country:</p>
-                    <select class="syotemitat" id="country" name="country" required>
+                        <p class="settings">Country:</p>
+                        <select class="syotemitat" id="country" name="country" required>
                                 <option value=" " selected="selected">Select your country</option>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Åland Islands">Åland Islands</option>
@@ -334,32 +334,30 @@ if($_SESSION['loggedIn'] == "yes")  {
                                 <option value="Zimbabwe">Zimbabwe</option>                                
                             </select>
 
-                    <p class="settings">Profile picture:</p>
-                    <input class="syotemitat" type="text" name="profilepicurl" placeholder="Specify by url">
-                    <br>
+                        <p class="settings">Profile picture:</p>
+                        <input class="syotemitat" type="text" name="profilepicurl" placeholder="Specify by url">
+                        <br>
 
-                    <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
-                </form>
+                        <input class="syotemitat" style="margin-top:3em" type="submit" name="save" value="Save"><br>
+                    </form>
                                        
-                <div class="infosisalto">
-                    <p class="info">
-                    <?php
-                        if($_SESSION['loggedIn'] == "yes"){
-                            echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
-                            echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
-                            echo nl2br ("Email: " . $_SESSION['email'] ."\n"."\n");
-                            echo nl2br ("Birthdate: " . $_SESSION['birthdate']. "\n"."\n");
-                            echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n"."\n");
-                            echo nl2br ("Country: " . $_SESSION['country']. "\n");
-                            
-                        } else {
-                            echo ("Username: Guest");
-                        }
-                       ?> 
-                    </p>
-                </div>    
+                    <div class="infosisalto">
+                        <p class="info">
+                        <?php
+                            if($_SESSION['loggedIn'] == "yes"){
+                                echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
+                                echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
+                                echo nl2br ("Email: " . $_SESSION['email'] ."\n"."\n");
+                                echo nl2br ("Birthdate: " . $_SESSION['birthdate']. "\n"."\n");
+                                echo nl2br ("Phone number: " . $_SESSION['phonenumber']. "\n"."\n");
+                                echo nl2br ("Country: " . $_SESSION['country']. "\n");
+                            } else {
+                                echo ("Username: Guest");
+                            }
+                        ?> 
+                        </p>
+                    </div>    
                 </div>
-                
             </div> 
         </div>
     </div>
