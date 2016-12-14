@@ -10,21 +10,22 @@ if ($_SESSION['loggedIn'] == "yes"){
 	$STH = $DBH->prepare($query1);
 	$STH->execute($datat);
     }catch(PDOException $e) {
-    echo '<script type="text/javascript">'; 
-	echo 'alert("Database error");'; 
-	echo 'window.location.href = "frontpage.php";';
-	echo '</script>';
+		
+    redirect("info.php?image=".$imageid);
+	
+	
+	
    	}
 	//redirect("info.php");
 	$ratedimage = unserialize($_SESSION['ratedimage']);
 	$ratedimage[] = $imageid;
 	$_SESSION['ratedimage'] = serialize($ratedimage);
+	
+	redirect("info.php?image=".$imageid);
+	
 	}	
 	else {
-    echo '<script type="text/javascript">'; 
-	echo 'alert("You aren\'t logged in");'; 
-	echo 'window.location.href = "index.php";';
-	echo '</script>';
+    redirect("info.php?image=".$imageid);
 }
 
 
