@@ -15,7 +15,7 @@ include("iheader.php");
                     $_SESSION['country'] = $user->country;
                     $_SESSION['title'] = $user->title;
                     $_SESSION['phonenumber'] = $user->phonenumber;
-		    $_SESSION['profilepicurl'] = $user->profilepicurl;
+					$_SESSION['profilepicurl'] = $user->profilepicurl;
                     unset($_SESSION['viesti']);
                     redirect("frontpage.php");    
                 }
