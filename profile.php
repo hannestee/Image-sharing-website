@@ -42,12 +42,31 @@ echo '</script>';
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
             
+            
+            <?php
+            try {
+					$query1 = "SELECT ga_users.profilepicurl FROM ga_users WHERE username=:username
+					LIMIT 1";
+		            $STH = $DBH->prepare($query1);
+					$STH->execute(array(
+					"username" => $_SESSION['username2']
+					));
+					
+		          	$profilepicture = $STH->fetch();   
+		          	//print_r($profilepicture[0]);
+                    }catch(PDOException $e) {
+        			echo "DB Error";
+        			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
+   					}
+            
+            ?>
+            
             <a href="profile.php" target="_self" class="profiilikuva">
                 <?php
-                    if(empty($_SESSION['profilepicurl'])){
+                    if(empty($profilepicture[0])){
                         echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
                     } else {
-                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                        echo '<img src='.$profilepicture[0].' width="104px" height="104px">';
                     }
                     ?>
             </a>
@@ -71,10 +90,10 @@ echo '</script>';
             <div class="profileinfo">
                 <div class="profilepic">
                     <?php
-                    if(empty($_SESSION['profilepicurl'])){
+                    if(empty($profilepicture[0])){
                             echo '<img src="graphics/profiilikuva.jpg" width="320px" height="320px">';
                         } else {
-                            echo '<img src='.$_SESSION['profilepicurl'].' width="320px" height="320px">';
+                            echo '<img src='.$profilepicture[0].' width="320px" height="320px">';
                             }
                     ?>
                 </div>
@@ -84,21 +103,27 @@ echo '</script>';
                     <?php
                         function ageCalculator($dob){
                             if(!empty($dob)){
-                                $birthdate = new DateTime($dob);
-                                $today   = new DateTime('today');
-                                $age = $birthdate->diff($today)->y;
+                                //$birthdate = new DateTime($dob);
+                                print_r($birthdate);
+                                //$today   = new DateTime('today');
+                                //$age = $birthdate->diff($today)->y;	
+                                $age = (date('Y') - date('Y',strtotime($dob)));
                                 return $age;
                             }else{
-                                return "-";
+                                return 0;
                             }
                         }
+                        //print_r($_SESSION['birthdate']);
                         $dob = $_SESSION['birthdate'];
+                        //print_r($dob);
+                        
         
                         if($_SESSION['loggedIn'] == "yes"){
                             echo nl2br ("Username: " . $_SESSION['username2'] ."\n"."\n");
                             echo nl2br ("Title: " . $_SESSION['title'] ."\n"."\n");
                             echo nl2br ("Country: " . $_SESSION['country']. "\n"."\n");
-                            echo nl2br ("Age: " . ageCalculator($dob). "\n"."\n");  
+                            
+                            echo nl2br ("Age: ".ageCalculator($dob). "\n"."\n");  
                         } else {
                             echo ("Username: Guest");
                         }
