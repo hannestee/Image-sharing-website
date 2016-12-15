@@ -30,9 +30,9 @@ try {     //Avataan yhteys tietokantaan ($DBH on nyt luotu yhteysolio, nimi vapa
 
 function getNewestMedia($DBH, $count){
    try {
-      //$count muuttuja ei käytössä
+      //Haetaan $count muuttujan arvon verran uusimpia kuvia
       $mediaTuotteet = array(); //Taulukko haettaville kuva-olioille (mediatuote)
-		$query1 = "SELECT * FROM ga_imgdata ORDER BY ga_imgdata.id DESC LIMIT 15";
+		$query1 = "SELECT * FROM ga_imgdata ORDER BY ga_imgdata.id DESC LIMIT 50";
 		$STH = $DBH->query($query1);
       $STH->setFetchMode(PDO::FETCH_OBJ);  //yksi rivi objektina
       while($mediaTuote = $STH->fetch()){
