@@ -32,14 +32,33 @@ include("iheader.php");
             </div>
             
             <div class="logo"><a href="frontpage.php" target="_self"><img src="graphics/logo.png" height="60em"></a></div>
+            
+			<?php
+            try {
+					$query1 = "SELECT ga_users.profilepicurl FROM ga_users WHERE username=:username
+					LIMIT 1";
+		            $STH = $DBH->prepare($query1);
+					$STH->execute(array(
+					"username" => $_SESSION['username2']
+					));
+					
+		          	$profilepicture = $STH->fetch();   
+		          	//print_r($profilepicture[0]);
+                    }catch(PDOException $e) {
+        			echo "DB Error";
+        			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
+   					}
+            
+            ?>
+            
             <a href="profile.php" target="_self" class="profiilikuva">
                 <?php
-                    if(empty($_SESSION['profilepicurl'])){
+                    if(empty($profilepicture[0])){
                         echo '<img src="graphics/profiilikuva.jpg" width="104px" height="104px">';
                     } else {
-                        echo '<img src='.$_SESSION['profilepicurl'].' width="104px" height="104px">';
+                        echo '<img src='.$profilepicture[0].' width="104px" height="104px">';
                     }
-                ?>
+                    ?>
             </a>
             
             <div class="user">
@@ -83,7 +102,7 @@ include("iheader.php");
             
                 if($mediat = getSearchResult($DBH)){
                     foreach($mediat as $media){
-                    print_r($media->name);
+                    //print_r($media->name);
                          
                     $datat = array('uploadaaja' => $media->id);                 
                     try {
@@ -93,14 +112,13 @@ include("iheader.php");
 		            $STH->execute($datat);
 		          	$uploader = $STH->fetch();         	
                     }catch(PDOException $e) {
-        			echo "Login DB error.";
-        			file_put_contents('log/DBErrors.txt', 'Login: '.$e->getMessage()."\n", 				FILE_APPEND);
-   					}
-   				
-   				
+        			echo "DB error.";
+        			file_put_contents('log/DBErrors.txt', 'Search: '.$e->getMessage()."\n", 				FILE_APPEND);
+   					}			
    				//print_r($media->name);
+				//print_r($searchresult[2]);
    					
-   					for ($x = 0; $x <= 10; $x++) {
+   					for ($x = 0; $x <= 0; $x++) {
    						if ($media->name == $searchresult[2]){
            			 ?>
             
