@@ -15,6 +15,7 @@ include_once("iheader.php");
             $_SESSION['country'] = $datat['country']; 
             $_SESSION['phonenumber'] = $datat['phonenumber'];
             $_SESSION['profilepicurl'] = $datat['profilepicurl'];
+            $_SESSION['username2'] = $datat['username'];
             redirect("settings.php");
             }
         else {
